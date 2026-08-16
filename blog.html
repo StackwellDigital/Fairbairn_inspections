@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog · Fairbairn Inspection Services</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYEB985R2Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SYEB985R2Z');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a1a18;
+  --paper: #f5f2ec;
+  --cream: #ede9e0;
+  --rust: #1d5f78;
+  --rust-dark: #174d62;
+  --slate: #3d4a52;
+  --mid: #7a7268;
+  --light: #c2bcb1;
+  --border: rgba(26,26,24,0.1);
+  --sans: 'DM Sans', sans-serif;
+  --serif: 'DM Serif Display', serif;
+  --mono: 'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 4rem;
+  background: var(--paper);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+nav.scrolled {
+  border-color: var(--border);
+  background: rgba(245,242,236,0.95);
+  backdrop-filter: blur(12px);
+}
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.nav-brand-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--ink);
+  line-height: 1;
+}
+.nav-brand-sub {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.8rem;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--rust); }
+.nav-cta {
+  background: var(--rust);
+  color: white;
+  text-decoration: none;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--rust-dark); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+  position: relative;
+}
+
+.hero-left {
+  background: var(--ink);
+  padding: 6rem 4rem 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle grid pattern */
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.2s forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--rust);
+  flex-shrink: 0;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 5vw, 6rem);
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.35s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+}
+
+.hero-sub {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.55);
+  max-width: 400px;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.65s forwards;
+}
+
+.btn-primary {
+  background: var(--rust);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2.2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--rust-dark); }
+
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 1rem 2.2rem;
+  font-size: 0.82rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.5); color: white; }
+
+.hero-phone {
+  position: relative;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  animation: fadeUp 0.7s 0.8s forwards;
+}
+.hero-phone-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 0.4rem;
+}
+.hero-phone a {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.hero-phone a:hover { color: var(--rust); }
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  animation: imgIn 1s 0.3s forwards;
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 3rem;
+  left: 2rem;
+  transform: rotate(-3deg);
+  background: var(--rust);
+  color: white;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(184,76,43,0.35);
+}
+.hero-badge-num {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  line-height: 1;
+}
+.hero-badge-text {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+/* ─── TRUST BAR ─── */
+.trust-bar {
+  background: var(--ink);
+  border-top: 3px solid var(--rust);
+  padding: 1.5rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.trust-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rust);
+  flex-shrink: 0;
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 7rem 4rem; }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--rust);
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+h2 em { font-style: italic; color: var(--mid); }
+
+/* ─── SERVICES ─── */
+#services {
+  background: white;
+  border-top: 1px solid var(--border);
+}
+
+.services-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.services-intro p {
+  font-size: 0.92rem;
+  color: var(--mid);
+  line-height: 1.85;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.services-specialty-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin: 3rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.services-specialty-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--mid);
+}
+
+.services-specialty {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+/* specialty cards — shorter image, slightly compact */
+.services-specialty .service-card-img {
+  aspect-ratio: 3/2;
+}
+.services-specialty .service-card-body {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.service-card {
+  background: white;
+  transition: background 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.service-card:hover { background: #faf9f6; }
+
+.service-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.service-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.service-card:hover .service-card-img img { transform: scale(1.05); }
+
+.service-card-body {
+  padding: 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.service-num {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--light);
+  margin-bottom: 0.75rem;
+}
+
+.service-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  display: block;
+  line-height: 1;
+}
+
+.service-card h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.service-card p {
+  font-size: 0.82rem;
+  color: var(--mid);
+  line-height: 1.75;
+}
+
+.service-tag {
+  margin-top: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+/* ─── DIFFERENCE VS LAYOUT ─── */
+#difference {
+  background: var(--ink);
+  color: white;
+}
+
+#difference .section-label { color: var(--rust); }
+#difference .section-label::before { background: var(--rust); }
+#difference h2 { color: white; }
+#difference h2 em { color: rgba(255,255,255,0.35); }
+
+.diff-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.diff-intro p {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.85;
+}
+
+.diff-vs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: rgba(255,255,255,0.06);
+}
+
+.diff-col-header {
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.diff-col-header.us {
+  background: var(--rust);
+  color: white;
+}
+
+.diff-col-header.them {
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.3);
+}
+
+.diff-col-header .col-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.diff-col-header.us .col-dot { background: rgba(255,255,255,0.6); }
+.diff-col-header.them .col-dot { background: rgba(255,255,255,0.15); }
+
+.diff-rows {
+  display: contents;
+}
+
+.diff-row-us,
+.diff-row-them {
+  padding: 1.1rem 2rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.2s;
+}
+
+.diff-row-us {
+  background: rgba(255,255,255,0.03);
+  color: white;
+}
+.diff-row-us:hover { background: rgba(255,255,255,0.06); }
+
+.diff-row-them {
+  background: transparent;
+  color: rgba(255,255,255,0.2);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.12);
+}
+.diff-row-them:hover { background: rgba(255,255,255,0.02); }
+
+.diff-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--rust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.diff-cross {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .diff-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+@media (max-width: 768px) {
+  .diff-vs { grid-template-columns: 1fr; }
+  .diff-col-header.them { display: none; }
+  .diff-row-them { display: none; }
+}
+
+/* ─── TESTIMONIALS ─── */
+#testimonials {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.testi-card {
+  background: white;
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.testi-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: var(--serif);
+  font-size: 5rem;
+  color: var(--cream);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testi-stars {
+  color: var(--rust);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.1em;
+}
+
+.testi-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.testi-author {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ─── PROCESS ─── */
+#process {
+  border-top: 1px solid var(--border);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+.process-step {
+  padding: 2.5rem;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.process-step:last-child { border-right: none; }
+
+.process-num {
+  font-family: var(--serif);
+  font-size: 4rem;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.process-step h3 {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.process-step p {
+  font-size: 0.8rem;
+  color: var(--mid);
+  line-height: 1.75;
+}
+
+/* ─── ABOUT ─── */
+#about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-img-wrap {
+  position: relative;
+  min-height: 60vh;
+  overflow: hidden;
+  background: var(--cream);
+}
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.about-text {
+  padding: 6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
+}
+
+.about-text p {
+  font-size: 0.88rem;
+  color: var(--mid);
+  line-height: 1.9;
+  margin-top: 1.25rem;
+}
+
+.about-creds {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.cred-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+.cred-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rust);
+  flex-shrink: 0;
+}
+
+.about-text .btn-primary {
+  margin-top: 2.5rem;
+  align-self: flex-start;
+}
+
+/* ─── BOOKING CTA ─── */
+.book-cta {
+  background: var(--rust);
+  padding: 6rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.book-cta h2 {
+  color: white;
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  max-width: 600px;
+}
+.book-cta h2 em { color: rgba(255,255,255,0.55); }
+
+.book-cta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.btn-white {
+  background: white;
+  color: var(--rust);
+  text-decoration: none;
+  padding: 1.1rem 2.5rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.btn-white:hover { opacity: 0.9; }
+
+.book-phone {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+}
+.book-phone:hover { color: white; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  padding: 3rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-top: 3px solid var(--rust);
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: white;
+}
+.footer-brand span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+  font-weight: 400;
+  margin-top: 3px;
+}
+
+.footer-mid {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  line-height: 2;
+}
+
+.footer-credit {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2);
+}
+.footer-credit a { color: var(--rust); text-decoration: none; }
+
+/* ─── HAMBURGER ─── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--paper);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.mobile-menu a.mob-cta {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  background: var(--rust);
+  color: white;
+  padding: 1rem 2.5rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes imgIn {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─── RESPONSIVE ─── */
+
+/* TABLET — 1024px */
+@media (max-width: 1024px) {
+  nav { padding: 0.75rem 2rem; }
+  section { padding: 5rem 2rem; }
+
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 55vw; min-height: 260px; order: 0; }
+  .hero-left { order: 1; padding: 3.5rem 2rem 3rem; }
+  .hero-badge { display: none; }
+
+  .trust-bar { padding: 1.25rem 2rem; gap: 1rem; flex-wrap: wrap; }
+
+  .services-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .services-specialty { grid-template-columns: 1fr 1fr; }
+
+  .diff-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .testi-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .process-step { border-bottom: 1px solid var(--border); }
+  .process-step:nth-child(2) { border-right: none; }
+  .process-step:nth-child(3) { border-right: 1px solid var(--border); border-bottom: none; }
+  .process-step:last-child { border-right: none; border-bottom: none; }
+
+  #about { grid-template-columns: 1fr; }
+  .about-img-wrap { min-height: 50vw; max-height: 400px; }
+  .about-text { padding: 3.5rem 2rem; }
+
+  .book-cta { flex-direction: column; align-items: flex-start; padding: 4rem 2rem; gap: 2rem; }
+
+  footer { flex-direction: column; align-items: flex-start; gap: 1.25rem; padding: 2.5rem 2rem; }
+  .footer-mid { text-align: left; }
+}
+
+/* MOBILE — 768px */
+@media (max-width: 768px) {
+  /* NAV */
+  nav { padding: 0.6rem 1.25rem; }
+  nav .nav-brand img { height: 54px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  /* HERO */
+  .hero-right { height: 62vw; min-height: 220px; }
+  .hero-left { padding: 2.5rem 1.25rem 2.5rem; }
+  .hero-eyebrow { font-size: 0.58rem; margin-bottom: 1rem; }
+  .hero-title { font-size: clamp(2.6rem, 9vw, 3.5rem); margin-bottom: 1rem; }
+  .hero-sub { font-size: 0.85rem; margin-bottom: 2rem; max-width: 100%; }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline { display: block; text-align: center; padding: 1rem; font-size: 0.85rem; }
+  .hero-phone { margin-top: 2.5rem; padding-top: 2rem; }
+  .hero-phone a { font-size: 1.4rem; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1.25rem 1.25rem;
+  }
+  .trust-item { font-size: 0.6rem; }
+
+  /* SECTIONS */
+  section { padding: 3.5rem 1.25rem; }
+
+  /* SERVICES */
+  .services-intro { margin-bottom: 2rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-specialty { grid-template-columns: 1fr; }
+  .services-specialty-label { margin: 2rem 0 0.75rem; }
+  .service-card-body { padding: 1.25rem 1.25rem 1.75rem; }
+  .service-card-img { aspect-ratio: 16/9; }
+
+  /* DIFFERENCE */
+  .diff-intro { margin-bottom: 2rem; }
+  .diff-col-header.them { display: none; }
+  .diff-row-them { display: none; }
+  .diff-vs { grid-template-columns: 1fr; background: none; gap: 0; }
+  .diff-col-header.us { padding: 1rem 1.25rem; margin-bottom: 2px; }
+  .diff-row-us { padding: 0.9rem 1.25rem; font-size: 0.82rem; }
+
+  /* TESTIMONIALS */
+  .testi-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .testi-card { padding: 1.75rem 1.25rem; }
+  .testi-quote { font-size: 0.95rem; }
+
+  /* PROCESS */
+  .process-grid { grid-template-columns: 1fr; }
+  .process-step {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 1.75rem 1.25rem;
+  }
+  .process-step:last-child { border-bottom: none; }
+  .process-num { font-size: 3rem; margin-bottom: 0.75rem; }
+
+  /* ABOUT */
+  .about-img-wrap { min-height: 70vw; max-height: none; }
+  .about-text { padding: 2.5rem 1.25rem; }
+  .about-creds { margin-top: 1.5rem; gap: 0.6rem; }
+  .cred-item { font-size: 0.78rem; }
+  .about-text .btn-primary { margin-top: 2rem; width: 100%; text-align: center; display: block; }
+
+  /* BOOK CTA */
+  .book-cta { padding: 3rem 1.25rem; gap: 1.75rem; }
+  .book-cta h2 { font-size: clamp(2rem, 8vw, 3rem); }
+  .btn-white { display: block; text-align: center; width: 100%; padding: 1.1rem; font-size: 0.9rem; }
+  .book-phone { font-size: 1.2rem; }
+
+  /* FOOTER */
+  footer { padding: 2rem 1.25rem; gap: 1rem; }
+  .footer-mid { font-size: 0.55rem; }
+}
+
+/* SMALL MOBILE — 480px */
+@media (max-width: 480px) {
+  .hero-right { height: 72vw; }
+  .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .testi-card::before { display: none; }
+  .diff-row-us { font-size: 0.78rem; }
+}
+
+/* ─── INTERIOR PAGE HERO ─── */
+.page-hero {
+  background: var(--ink);
+  padding: 9.5rem 4rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.page-hero-inner { position: relative; max-width: 780px; }
+.page-hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.page-hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--rust); flex-shrink: 0; }
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  line-height: 1.08;
+  color: white;
+  margin-bottom: 1.25rem;
+}
+.page-hero h1 em { font-style: italic; color: rgba(255,255,255,0.45); }
+.page-hero p.page-hero-sub {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.55);
+  max-width: 520px;
+}
+@media (max-width: 768px) {
+  .page-hero { padding: 7rem 1.25rem 3.5rem; }
+}
+
+/* ─── BLOG ─── */
+#blog-index { background: white; border-top: 1px solid var(--border); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 3rem;
+}
+.post-card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.post-card-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+.post-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.post-card:hover .post-card-img img { transform: scale(1.05); }
+.post-card-body { padding: 2rem 2.25rem 2.5rem; display: flex; flex-direction: column; flex: 1; }
+.post-tag {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.9rem;
+}
+.post-card h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--ink); margin-bottom: 0.75rem; line-height: 1.25; }
+.post-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.75; margin-bottom: 1.25rem; }
+.post-meta { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-top: auto; }
+
+#blog-posts { background: var(--cream); border-top: 1px solid var(--border); }
+.blog-post { max-width: 760px; margin: 0 auto 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 100px; }
+.blog-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.blog-post-img { width: 100%; aspect-ratio: 16/8; overflow: hidden; margin-bottom: 2.5rem; }
+.blog-post-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-post .post-tag { margin-bottom: 1rem; }
+.blog-post h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); margin-bottom: 0.75rem; }
+.blog-post-meta { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem; }
+.blog-post-body p { font-size: 0.95rem; line-height: 1.9; color: var(--slate); margin-bottom: 1.4rem; }
+.blog-post-body p:last-child { margin-bottom: 0; }
+
+@media (max-width: 1024px) { .blog-grid { grid-template-columns: 1fr; } }
+
+/* ─── SAMPLE REPORT ─── */
+#report-features { background: white; border-top: 1px solid var(--border); }
+.feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 2.5rem; margin-top: 3rem; max-width: 780px; }
+.feature-item { display: flex; align-items: flex-start; gap: 0.9rem; font-size: 0.9rem; color: var(--ink); line-height: 1.5; }
+.feature-item .diff-check { margin-top: 2px; }
+
+#report-downloads { background: var(--cream); border-top: 1px solid var(--border); }
+.download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+.download-card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 2.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+.download-card:hover { border-color: var(--rust); }
+.download-card .service-num { margin-bottom: 1.25rem; }
+.download-card h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); margin-bottom: 0.75rem; }
+.download-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.7; margin-bottom: 2rem; }
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--rust);
+  color: white;
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.download-btn:hover { background: var(--rust-dark); }
+.download-note { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: var(--mid); margin-top: 3rem; }
+@media (max-width: 768px) { .feature-list, .download-grid { grid-template-columns: 1fr; } }
+
+/* ─── SCHEDULING ─── */
+#schedule-embed { background: white; border-top: 1px solid var(--border); }
+.schedule-wrap {
+  border: 1px solid var(--border);
+  background: var(--cream);
+  min-height: 780px;
+  display: flex;
+  flex-direction: column;
+}
+.schedule-wrap iframe { width: 100%; flex: 1; min-height: 780px; border: none; display: block; }
+.schedule-fallback {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
+.schedule-fallback a { color: var(--rust); }
+.schedule-alt {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.schedule-alt-line { flex: 1; height: 1px; background: var(--border); min-width: 40px; }
+.schedule-alt-text { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
+
+/* ─── TEAM ─── */
+#team-grid { background: white; border-top: 1px solid var(--border); }
+.team-list { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; border-top: 1px solid var(--border); }
+.team-bio { display: grid; grid-template-columns: 320px 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.team-bio-img-wrap { background: var(--cream); min-height: 340px; overflow: hidden; }
+.team-bio-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.team-bio-placeholder {
+  width: 100%; height: 100%; min-height: 340px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cream);
+  font-family: var(--serif);
+  font-size: 4rem;
+  color: var(--light);
+}
+.team-bio-text { padding: 3rem 3rem 3rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+.team-bio-text .section-label { margin-bottom: 0.75rem; }
+.team-bio-text h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 0.5rem; }
+.team-bio-role { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; }
+.team-bio-text p { font-size: 0.9rem; color: var(--mid); line-height: 1.85; margin-bottom: 1rem; }
+.team-bio-text p:last-of-type { margin-bottom: 0; }
+.team-creds { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+
+@media (max-width: 900px) {
+  .team-bio { grid-template-columns: 1fr; }
+  .team-bio-img-wrap, .team-bio-placeholder { min-height: 260px; }
+  .team-bio-text { padding: 2.5rem 1.5rem; }
+}
+
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/Fairbairn_log_myhns0.png" alt="Fairbairn Inspection Services" style="height:72px;width:auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="sample-report.html">Sample Report</a></li>
+    <li><a href="index.html#difference">Why Us</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#testimonials">Reviews</a></li>
+    <li><a href="team.html">Our Team</a></li>
+  </ul>
+  <a href="scheduling.html" class="nav-cta">Schedule Online</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#services">Services</a>
+  <a href="sample-report.html">Sample Report</a>
+  <a href="index.html#difference">Why Us</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#testimonials">Reviews</a>
+  <a href="team.html">Our Team</a>
+  <a href="tel:6043952795" style="font-family:var(--sans);font-size:0.9rem;color:var(--mid);">Call 604-395-2795</a>
+  <a href="scheduling.html" class="mob-cta">Schedule Online</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Notes From The Field</p>
+    <h1>What We Find. <em>What It Means.</em></h1>
+    <p class="page-hero-sub">Real findings from real Metro Vancouver inspections — plus the maintenance tips, red flags, and plain-language explanations we wish every buyer had before they closed.</p>
+  </div>
+</div>
+
+<!-- BLOG INDEX -->
+<section id="blog-index">
+  <div class="reveal">
+    <p class="section-label">Latest Posts</p>
+    <h2>Straight Talk<br><em>On Home Health.</em></h2>
+  </div>
+
+  <div class="blog-grid">
+    <a href="#post-surrey-roof" class="post-card reveal">
+      <div class="post-card-img"><img src="https://fairbairninspections.com/wp-content/uploads/2023/10/surrey-roof-inspection-01.jpg" alt="Surrey new roof inspection"></div>
+      <div class="post-card-body">
+        <div class="post-tag">Featured Inspection</div>
+        <h3>Surrey New Roof Inspection</h3>
+        <p>We recently reviewed a newly-installed roof in Surrey — an architecturally complex job with a medley of slopes, wood-framed chimneys, and standing-seam metal sections. Here's what we found in a heavy downpour.</p>
+        <div class="post-meta">David Fairbairn · Oct 16, 2023</div>
+      </div>
+    </a>
+    <a href="#post-new-construction" class="post-card reveal">
+      <div class="post-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/House.jpg" alt="New construction home inspection"></div>
+      <div class="post-card-body">
+        <div class="post-tag">Featured Inspection · Video</div>
+        <h3>New Construction Home Inspection Tips</h3>
+        <p>A walkthrough of a new home construction inspection in Maple Ridge — from downspouts and soffit baffles to thermal imaging, gas shutoffs, and the green-tape trick every buyer should know.</p>
+        <div class="post-meta">David Fairbairn · Jul 24, 2015</div>
+      </div>
+    </a>
+    <a href="#post-mold-windows" class="post-card reveal">
+      <div class="post-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/Mold_Testing_Air_Pump_u0x1xj.jpg" alt="Mold on windows"></div>
+      <div class="post-card-body">
+        <div class="post-tag">Mold · Video</div>
+        <h3>Why Is There Mold on My Windows?</h3>
+        <p>David sits down with Top Local Lead Generation to break down the real cause of window mold, thermally broken windows, and the household habits that make the biggest difference.</p>
+        <div class="post-meta">David Fairbairn · Jul 10, 2015</div>
+      </div>
+    </a>
+    <a href="#post-mold-crawlspace" class="post-card reveal">
+      <div class="post-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/fairbairn-introducting-breeze-radon-monitoring.png" alt="Crawlspace mold"></div>
+      <div class="post-card-body">
+        <div class="post-tag">Mold · Video</div>
+        <h3>What Causes Mold in Crawlspaces?</h3>
+        <p>Rising damp, blocked drain tile, unwinterized hose bibs, and covered vents — the four most common ways a Metro Vancouver crawlspace ends up with a serious mold problem.</p>
+        <div class="post-meta">David Fairbairn · Jul 10, 2015</div>
+      </div>
+    </a>
+    <a href="#post-reviews" class="post-card reveal">
+      <div class="post-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/david.jpg" alt="Customer reviews"></div>
+      <div class="post-card-body">
+        <div class="post-tag">Reviews</div>
+        <h3>What Metro Vancouver Buyers Are Saying</h3>
+        <p>Two recent client reviews — from a Coquitlam detached home purchase and a New Westminster fixer-upper — on what it's actually like working with Fairbairn Inspection Services.</p>
+        <div class="post-meta">Client Reviews</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FULL POSTS -->
+<section id="blog-posts">
+
+  <article class="blog-post" id="post-surrey-roof">
+    <div class="blog-post-img"><img src="https://fairbairninspections.com/wp-content/uploads/2023/10/surrey-roof-inspection-01.jpg" alt="Surrey new roof inspection"></div>
+    <div class="post-tag">Featured Inspection</div>
+    <h2>Surrey New Roof Inspection</h2>
+    <div class="blog-post-meta">October 16, 2023 · By David Fairbairn</div>
+    <div class="blog-post-body">
+      <p>We recently had the opportunity to review a newly-installed roof in Surrey, BC, installed by local roofer Vantage Roofing. Vantage has been installing mostly shingle roofs in the lower mainland BC for a while now, and we were curious how their latest roofing job would turn out.</p>
+      <p>The home was a 2-level, single family home, which was particularly tall, due to the height of the ceilings. This is a tricky roof to access under normal conditions, however especially so under the challenging conditions of heavy rain and mud.</p>
+      <p><strong>Design &amp; Features</strong><br>This was an architecturally complex roof, with a medley of slopes, wood-framed chimneys, and standing-seam metal roof sections. Due to the complexity, the roof presents a large number of potential leakage points. This level of complexity often challenges even the most experienced roofing professionals.</p>
+      <img src="https://fairbairninspections.com/wp-content/uploads/2023/10/surrey-roof-inspection-02.jpg" alt="Surrey roof inspection detail" style="width:100%;margin:0.5rem 0 1.5rem;">
+      <p><strong>Materials &amp; Installation</strong><br>The selected shingles were Malarkey brand laminate "dimensional" fiberglass shingles. Malarkey shingles have a reputation for being durable, and good value for the money. Beneath the shingles was a synthetic underlay over sturdy 5/8" plywood sheathing.</p>
+      <p>In inspecting the nail pattern, a critical element in roofing, we noted that a standard 4-nail pattern had been adhered to. For those unfamiliar, this pattern ensures the shingles remain firm against adverse weather conditions. The alignment of the nails along the nailer line and the effective fusion of thermal strips were satisfactory.</p>
+      <p><strong>Venting &amp; Protection</strong><br>The chosen venting solution, Duraflo box-style vents paired with soffit venting, looked up to snuff. However, it's always wise to ensure attic airflow remains unhindered. Vantage Roofing's choice of employing an ice and water shield membrane, especially around roof penetrations and valleys, was reassuring. In layman's terms, this shield acts like a safety net, reducing the chances of water damage if any part of the roof were to falter.</p>
+      <p><strong>Finer Details</strong><br>"W" metal valley flashings were installed at the valleys. These flashings, which guide rainwater off the roof, were neatly aligned with no signs of damage. A particular chimney, however, caught my attention due to its location in a valley — a spot that often poses a higher risk for leakage. While the flashings appeared well done, there was some minor construction debris and building paper adjustment required.</p>
+      <p>Further, while the metal roof ornaments seemed well-fastened, we couldn't help but notice sharp edges on the rear metal roof. These could potentially harm the protective membrane around them and would benefit from some rectification.</p>
+      <p><strong>Recommendations &amp; Reminders</strong><br>While the roof appeared to be performing well, especially in heavy rain, there were a few areas that required attention: a ridge cap flashing needs improvements to ensure maximum protection against water; while the rear rain channel functioned efficiently, it's essential to keep it clean for optimal performance; at the front lower roof, flashings should be better integrated behind the stone cladding to prevent potential water intrusion; and larger kickout flashings are recommended to ensure water doesn't breach the wall cavity.</p>
+      <p><strong>Conclusion</strong><br>Overall, seeing a brand-new roof take on the fury of a heavy downpour is the ultimate litmus test. Vantage Roofing has installed a roof that will protect the homeowners from the elements well, and last decades. The majority of the installation was top-notch, reflecting the expertise of the team behind it. A few areas need some tweaks, but nothing out of the ordinary for a new construction.</p>
+      <p>For the homeowners, this inspection promises peace of mind, knowing that their new roof is prepared to stand the test of time and weather. Remember, no roof, or home for that matter, is entirely flawless post-construction. Regular maintenance and minor touch-ups are part and parcel of homeownership.</p>
+    </div>
+  </article>
+
+  <article class="blog-post" id="post-new-construction">
+    <div class="post-tag">Featured Inspection · Video</div>
+    <h2>New Construction Home Inspection Tips</h2>
+    <div class="blog-post-meta">July 24, 2015 · By David Fairbairn</div>
+    <div class="blog-post-body">
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2rem;">
+        <iframe src="https://www.youtube.com/embed/7rzWRenR0ok" title="New Construction Home Inspection Tips" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p>Hi, this is David with Fairbairn Inspection Services and we're here in Maple Ridge and we're about to start a new home construction inspection so I'll show you what's included and what we're going to do.</p>
+      <p>I like to look out for small cosmetic deficiencies like a split board — an easy repair, and of course you can see it from the street. We also look at downspouts that just terminate and drive water onto the shingles; I prefer to have these extended so that the water carries down to the gutter below. This will prolong the life of the shingles and prevent roof damage.</p>
+      <p>Part of the inspection is making sure guard rails are secure, and checking anywhere you have a drop over two feet where someone might fall and injure themselves. We also look for missing window well covers — if you have a window well in your basement you want to make sure it's covered so nobody can fall in and become trapped, but the cover has to be removable so someone can escape through it in an emergency.</p>
+      <p>Here we can see a roof vent in the attic that has caused a small crater in the insulation below it, due to air pressure differences. On the other side we see a soffit baffle — a foam tray that allows air to pass over the insulation. Without soffit baffles the bottom edge of the roof would be blocked and no air would be able to enter the attic.</p>
+      <p>We test the plumbing by filling up sinks and the tub completely and running them through the overflow lines before draining — I suspect in new construction they may not be fully tested prior to the walk-through. We also check that sinks are properly mounted to the underside of the counter with a supporting strap or bracket.</p>
+      <p>We use a thermal imaging camera to check the walls, ceilings and floors for any moisture or missing insulation — we can also use it to detect electrical or overheating issues, or plumbing leaks.</p>
+      <p>Because it's new construction, appliances aren't installed yet, so we check the connections instead — an ice maker line for the fridge, a gas hookup for the stove — and test the garburator and range hood venting.</p>
+      <p>In the furnace room we check the hot water tank's release tube and earthquake straps, locate the main water shut-off, the fire sprinkler shut-off if present, and the gas valve set — all should be clearly labelled so the homeowner knows how to shut things off in an emergency.</p>
+      <p>We test the garage door two ways: the auto-reverse sensors, and the resistance test with the sensors bypassed, to make sure the safety mechanisms actually work.</p>
+      <p><strong>A tip for you:</strong> if you're getting a new construction inspection done, bring along a roll of green painter's tape. If you find any drywall blemishes, nail pops, defects, cracks, or missing paint, just put green tape up on the wall so the builder can find it later when he's having repair workers in to fix any problems.</p>
+    </div>
+  </article>
+
+  <article class="blog-post" id="post-mold-windows">
+    <div class="post-tag">Mold · Video</div>
+    <h2>Why Is There Mold on My Windows?</h2>
+    <div class="blog-post-meta">July 10, 2015 · By David Fairbairn</div>
+    <div class="blog-post-body">
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2rem;">
+        <iframe src="https://www.youtube.com/embed/ZGm4Luw0aVI?rel=0" title="Why is there Mold on my Windows?" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p>This is probably one of the most-asked questions we get: why is there mold on my windows? Let's talk about what's actually happening.</p>
+      <p>First, an important disclaimer — "black mold" is actually the wrong name for what most people are picturing. They're usually thinking of a species called Stachybotrys, but it's not always black; it can come in different colours. You genuinely can't tell what kind of mold you have just by looking at it — it needs to be sampled and sent to a lab. If you ever have doubts, call a certified mold specialist.</p>
+      <p>So why does mold grow on windows specifically? A window is typically the coldest spot on your exterior wall, and there's a lot of heat loss through windows generally. If you've got an aluminum-frame window, a high indoor temperature, and high humidity, moisture in the air is going to settle on the coldest surface — the same reason a cold can of pop gets frosty when you take it out of the fridge. That's condensation, and windows are hot spots for it because they're so cold.</p>
+      <p>99% of mold-on-windows problems come down to indoor humidity. Showers generate a lot of moisture, and cooking sends a lot of water vapour into the air. The first step in prevention is proper ventilation. Make sure your bathroom fan is running not just during a shower, but for a while after — building code actually requests that it run for about eight hours in every twenty-four hour period in newer homes. As houses get newer and tighter, there's less natural draft moving fresh air through, so you have to mechanically ventilate it.</p>
+      <p>Another way to reduce window moisture problems is a thermally broken window. Older windows have metal running straight through the frame, transferring heat efficiently from inside to outside and cooling the window down — like a spoon left in a hot bowl of soup. Newer thermally broken windows have polyamide thermal strips separating the frame, which dramatically reduces that heat transfer and keeps condensation lower.</p>
+      <p>The type of mold most commonly found on windows is called Cladosporium — a very common indoor mold that also shows up as mildew on towels, cheese, and bread. It grows anywhere warm and wet.</p>
+      <p>A reminder on bathroom fans: don't oversize them. An oversized fan can pull heat out of your house and increase your heating bills. A good rule of thumb is to take the square footage of the bathroom and multiply by 1.07 — for an 80 sq ft bathroom, that's roughly a 90 CFM fan.</p>
+      <p>If you need to remove mold from your windows, the CDC recommends a mixture of one part bleach to ten parts water in a spray bottle — spray along the bottom edge of the window, clean it off, and repeat as necessary. If it keeps coming back, that's when it's time to call in a specialist for sampling and air quality testing.</p>
+    </div>
+  </article>
+
+  <article class="blog-post" id="post-mold-crawlspace">
+    <div class="post-tag">Mold · Video</div>
+    <h2>What Causes Mold in Crawlspaces?</h2>
+    <div class="blog-post-meta">July 10, 2015 · By David Fairbairn</div>
+    <div class="blog-post-body">
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2rem;">
+        <iframe src="https://www.youtube.com/embed/ss1WMqxhBho?rel=0" title="What Causes Mold in Crawlspaces?" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p>Every mold problem tends to trace back to the same root cause: moisture. Mold is a symptom of a moisture problem somewhere in the home, and crawlspaces are especially susceptible because they're wet, damp environments that tend to get neglected — most people don't go down there the way they check their windows or attic.</p>
+      <p><strong>1. Rising damp.</strong> Older crawlspaces with dirt floors, especially if they're not ventilated properly, can see moisture rising up from the ground — sometimes several gallons a day. That damages floor framing over time, and crawlspaces are full of wet wood for mold to latch onto. The fix is a properly sealed vapour barrier across the floor, with the edges sealed and weighed down with gravel, to stop that rising damp at the source.</p>
+      <p><strong>2. Drain tile issues.</strong> Drain tile is your perimeter drain — a pipe that runs around the outside of the house carrying groundwater and rainwater away from the foundation. In older homes with a type of black corrugated pipe called Big-O tile, we sometimes find it's become blocked, occasionally by tree roots punching straight through it. Once it's blocked, water has nowhere to go but into the crawlspace.</p>
+      <p><strong>3. Unwinterized plumbing leaks.</strong> One of the worst mold cases we've seen wasn't widespread, but it was severe — a hose bib on an exterior wall that hadn't been winterized cracked from freezing temperatures and developed a pinhole leak that ran for years. That level of sustained moisture produces heavy fungal growth.</p>
+      <p><strong>4. Blocked crawlspace vents.</strong> We see this often — someone blocks off the crawlspace vents, sometimes with batt insulation, which starves the space of fresh air. That leaves moist, stagnant air sitting in the crawlspace, and mold grows quickly in those conditions. Often the simplest fix is just removing whatever's covering the vents and restoring the original design airflow.</p>
+      <p>If crawlspace mold is left too long, it can lead to real structural damage — we've seen cases where a rotten bottom wall plate meant the house was literally sitting on compromised wood, requiring the structure to be jacked up and the plate replaced.</p>
+      <p>If your crawlspace smells musty or you're not sure what you're looking at, an air quality test is a great first step — we can sample the air, send it to a lab, and tell you what kind of mold is present and how much of it there is.</p>
+    </div>
+  </article>
+
+  <article class="blog-post" id="post-reviews">
+    <div class="post-tag">Reviews</div>
+    <h2>What Metro Vancouver Buyers Are Saying</h2>
+    <div class="blog-post-meta">Client Reviews</div>
+    <div class="blog-post-body">
+      <p><strong>J. Thompleson · Coquitlam</strong></p>
+      <p>We did a home inspection for J. Thompleson's new purchase — a detached home in Coquitlam, built in 1986. Here's what he had to say:</p>
+      <p style="font-style:italic;">"Fairbairn Home and Building Inspection did an inspection of our new home to ensure we weren't buying a lemon. He went into great detail about the issues he discovered and walked us through everything we needed to know to remedy them. He was friendly and his expertise was evident. I would highly recommend him for any and all home inspections."</p>
+      <p>We were able to save the buyers money on their hot water tank, leaking plumbing, and a failed microwave that needed a control-board replacement.</p>
+      <p><strong>Erik P. · New Westminster</strong></p>
+      <p>Erik called after he'd already purchased his home — he was bidding in a multiple-offer situation and didn't want to risk adding a subject to his offer, so the inspection was to help establish what needed to be done before renovating.</p>
+      <p style="font-style:italic;">"My wife and I purchased a fixer-upper home that required much work and we wanted to get an idea on which repairs we needed to tackle first before the cosmetic upgrades. We hired David and he was very thorough and very knowledgeable. He discovered some foundation settlement in the corner of the house that showed signs of possible movement causing the floor to sink 1 inch. He suggested to get it reviewed by a concrete specialist for stability before any renovations take place. Walking through the inspection with David was a pleasure as he educates you on his findings and gives you maintenance tips. I HIGHLY recommend David for any type of home inspection. Worth it!"</p>
+      <p>The inspection also turned up electrical safety concerns — about one third of the home's receptacles were wired with reversed polarity, which can cause premature appliance failure and potential shock. David gave Erik maintenance tips on the hot water tank and 15-year-old furnace, along with recommendations for the newly-installed roof.</p>
+    </div>
+  </article>
+
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    Fairbairn Inspection Services
+    <span>Metro Vancouver · Licensed · Bonded · Insured</span>
+  </div>
+  <div class="footer-mid">
+    <a href="blog.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Blog</a> ·
+    <a href="sample-report.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Sample Report</a> ·
+    <a href="scheduling.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Schedule Online</a><br>
+    604-395-2795 · fairbairninspections.com<br>
+    Vancouver · Burnaby · Surrey · Coquitlam · Richmond · North Vancouver
+  </div>
+  <div class="footer-credit">Website by <a href="https://stackwell.digital">Stackwell.Digital</a></div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  // Reveal
+  const revEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revEls.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

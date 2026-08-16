@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fairbairn Inspection Services · Vancouver Home Inspections</title>
+<title>Our Team · Fairbairn Inspection Services</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYEB985R2Z"></script>
 <script>
@@ -1034,20 +1034,209 @@ footer {
   .testi-card::before { display: none; }
   .diff-row-us { font-size: 0.78rem; }
 }
+
+/* ─── INTERIOR PAGE HERO ─── */
+.page-hero {
+  background: var(--ink);
+  padding: 9.5rem 4rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.page-hero-inner { position: relative; max-width: 780px; }
+.page-hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.page-hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--rust); flex-shrink: 0; }
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  line-height: 1.08;
+  color: white;
+  margin-bottom: 1.25rem;
+}
+.page-hero h1 em { font-style: italic; color: rgba(255,255,255,0.45); }
+.page-hero p.page-hero-sub {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.55);
+  max-width: 520px;
+}
+@media (max-width: 768px) {
+  .page-hero { padding: 7rem 1.25rem 3.5rem; }
+}
+
+/* ─── BLOG ─── */
+#blog-index { background: white; border-top: 1px solid var(--border); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 3rem;
+}
+.post-card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.post-card-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+.post-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.post-card:hover .post-card-img img { transform: scale(1.05); }
+.post-card-body { padding: 2rem 2.25rem 2.5rem; display: flex; flex-direction: column; flex: 1; }
+.post-tag {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.9rem;
+}
+.post-card h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--ink); margin-bottom: 0.75rem; line-height: 1.25; }
+.post-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.75; margin-bottom: 1.25rem; }
+.post-meta { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-top: auto; }
+
+#blog-posts { background: var(--cream); border-top: 1px solid var(--border); }
+.blog-post { max-width: 760px; margin: 0 auto 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 100px; }
+.blog-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.blog-post-img { width: 100%; aspect-ratio: 16/8; overflow: hidden; margin-bottom: 2.5rem; }
+.blog-post-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-post .post-tag { margin-bottom: 1rem; }
+.blog-post h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); margin-bottom: 0.75rem; }
+.blog-post-meta { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem; }
+.blog-post-body p { font-size: 0.95rem; line-height: 1.9; color: var(--slate); margin-bottom: 1.4rem; }
+.blog-post-body p:last-child { margin-bottom: 0; }
+
+@media (max-width: 1024px) { .blog-grid { grid-template-columns: 1fr; } }
+
+/* ─── SAMPLE REPORT ─── */
+#report-features { background: white; border-top: 1px solid var(--border); }
+.feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 2.5rem; margin-top: 3rem; max-width: 780px; }
+.feature-item { display: flex; align-items: flex-start; gap: 0.9rem; font-size: 0.9rem; color: var(--ink); line-height: 1.5; }
+.feature-item .diff-check { margin-top: 2px; }
+
+#report-downloads { background: var(--cream); border-top: 1px solid var(--border); }
+.download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+.download-card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 2.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+.download-card:hover { border-color: var(--rust); }
+.download-card .service-num { margin-bottom: 1.25rem; }
+.download-card h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); margin-bottom: 0.75rem; }
+.download-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.7; margin-bottom: 2rem; }
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--rust);
+  color: white;
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.download-btn:hover { background: var(--rust-dark); }
+.download-note { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: var(--mid); margin-top: 3rem; }
+@media (max-width: 768px) { .feature-list, .download-grid { grid-template-columns: 1fr; } }
+
+/* ─── SCHEDULING ─── */
+#schedule-embed { background: white; border-top: 1px solid var(--border); }
+.schedule-wrap {
+  border: 1px solid var(--border);
+  background: var(--cream);
+  min-height: 780px;
+  display: flex;
+  flex-direction: column;
+}
+.schedule-wrap iframe { width: 100%; flex: 1; min-height: 780px; border: none; display: block; }
+.schedule-fallback {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
+.schedule-fallback a { color: var(--rust); }
+.schedule-alt {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.schedule-alt-line { flex: 1; height: 1px; background: var(--border); min-width: 40px; }
+.schedule-alt-text { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
+
+/* ─── TEAM ─── */
+#team-grid { background: white; border-top: 1px solid var(--border); }
+.team-list { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; border-top: 1px solid var(--border); }
+.team-bio { display: grid; grid-template-columns: 320px 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.team-bio-img-wrap { background: var(--cream); min-height: 340px; overflow: hidden; }
+.team-bio-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.team-bio-placeholder {
+  width: 100%; height: 100%; min-height: 340px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cream);
+  font-family: var(--serif);
+  font-size: 4rem;
+  color: var(--light);
+}
+.team-bio-text { padding: 3rem 3rem 3rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+.team-bio-text .section-label { margin-bottom: 0.75rem; }
+.team-bio-text h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 0.5rem; }
+.team-bio-role { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; }
+.team-bio-text p { font-size: 0.9rem; color: var(--mid); line-height: 1.85; margin-bottom: 1rem; }
+.team-bio-text p:last-of-type { margin-bottom: 0; }
+.team-creds { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+
+@media (max-width: 900px) {
+  .team-bio { grid-template-columns: 1fr; }
+  .team-bio-img-wrap, .team-bio-placeholder { min-height: 260px; }
+  .team-bio-text { padding: 2.5rem 1.5rem; }
+}
+
 </style>
 </head>
 <body>
-
 <nav id="nav">
-  <a href="#" class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/Fairbairn_log_myhns0.png" alt="Fairbairn Inspection Services" style="height:72px;width:auto;">
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="index.html#services">Services</a></li>
     <li><a href="sample-report.html">Sample Report</a></li>
-    <li><a href="#difference">Why Us</a></li>
+    <li><a href="index.html#difference">Why Us</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="index.html#testimonials">Reviews</a></li>
     <li><a href="team.html">Our Team</a></li>
   </ul>
   <a href="scheduling.html" class="nav-cta">Schedule Online</a>
@@ -1055,286 +1244,69 @@ footer {
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services">Services</a>
+  <a href="index.html#services">Services</a>
   <a href="sample-report.html">Sample Report</a>
-  <a href="#difference">Why Us</a>
+  <a href="index.html#difference">Why Us</a>
   <a href="blog.html">Blog</a>
-  <a href="#testimonials">Reviews</a>
+  <a href="index.html#testimonials">Reviews</a>
   <a href="team.html">Our Team</a>
   <a href="tel:6043952795" style="font-family:var(--sans);font-size:0.9rem;color:var(--mid);">Call 604-395-2795</a>
   <a href="scheduling.html" class="mob-cta">Schedule Online</a>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-right">
-    <img
-      src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/greg-rosenke-0OZt4hzVUAY-unsplash.jpg"
-      alt="Home Inspection"
-      class="hero-img">
-    <div class="hero-badge">
-      <div class="hero-badge-num">25+</div>
-      <div class="hero-badge-text">Years in BC</div>
-    </div>
-  </div>
-  <div class="hero-left">
-    <p class="hero-eyebrow">Metro Vancouver's Most Thorough Inspection</p>
-    <h1 class="hero-title">Know What<br>You're <em>Buying.</em></h1>
-    <p class="hero-sub">Fairbairn Inspection Services delivers full-service home and building inspections across Metro Vancouver — with same-day reports, free thermal imaging, and 25+ years of expertise.</p>
-    <div class="hero-actions">
-      <a href="scheduling.html" class="btn-primary">Book an Inspection</a>
-      <a href="#services" class="btn-outline">Our Services</a>
-    </div>
-    <div class="hero-phone">
-      <div class="hero-phone-label">Call Anytime</div>
-      <a href="tel:6043952795">604-395-2795</a>
-    </div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Meet The Team</p>
+    <h1>The People<br>Behind The <em>Report.</em></h1>
+    <p class="page-hero-sub">Licensed, local, and hands-on with every inspection — meet the inspectors who show up at your property.</p>
   </div>
 </div>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item"><div class="trust-dot"></div> Licensed, Bonded &amp; Insured</div>
-  <div class="trust-item"><div class="trust-dot"></div> A+ BBB Rating</div>
-  <div class="trust-item"><div class="trust-dot"></div> Same-Day Report Delivery</div>
-  <div class="trust-item"><div class="trust-dot"></div> Free Thermal Imaging Included</div>
-  <div class="trust-item"><div class="trust-dot"></div> Featured on Global TV News</div>
-  <div class="trust-item"><div class="trust-dot"></div> 500+ Five-Star Reviews</div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-intro reveal">
-    <div>
-      <p class="section-label">What We Inspect</p>
-      <h2>Every Property<br><em>Covered.</em></h2>
-    </div>
-    <p>Whether you're buying a condo downtown, a house in Surrey, or a commercial building anywhere in Metro Vancouver — we have the right inspection for you. Every service includes our same-day report, free thermal imaging, and lifetime consultation.</p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/House.jpg" alt="House Inspection"></div>
-      <div class="service-card-body">
-        <div class="service-num">01</div>
-        <h3>House Inspections</h3>
-        <p>Full single-family home inspections covering structure, roof, foundation, electrical, plumbing, HVAC, and every system in between.</p>
-        <div class="service-tag">Most Requested</div>
-      </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/condo.jpg" alt="Condo Inspection"></div>
-      <div class="service-card-body">
-        <div class="service-num">02</div>
-        <h3>Condo Inspections</h3>
-        <p>Comprehensive unit inspections including suite systems, electrical panel, ventilation, appliances, windows, and balconies.</p>
-        <div class="service-tag">Downtown &amp; Metro</div>
-      </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/townhome.jpg" alt="Townhouse Inspection"></div>
-      <div class="service-card-body">
-        <div class="service-num">03</div>
-        <h3>Townhouse Inspections</h3>
-        <p>Top-to-bottom townhome inspections covering the unit, common areas, and shared systems — nothing missed.</p>
-        <div class="service-tag">Strata Properties</div>
-      </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/mobile-home.jpg" alt="Mobile Home Inspection"></div>
-      <div class="service-card-body">
-        <div class="service-num">04</div>
-        <h3>Mobile &amp; Manufactured Homes</h3>
-        <p>Specialized inspections for mobile and manufactured homes — unique construction, unique expertise required.</p>
-        <div class="service-tag">All Types</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="services-specialty-label reveal">Specialty Services</div>
-
-  <div class="services-specialty">
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/commercial-building.jpg" alt="Commercial Inspection"></div>
-      <div class="service-card-body">
-        <div class="service-num">05</div>
-        <h3>Commercial Inspections</h3>
-        <p>Full building inspections for commercial properties — retail, office, industrial, and mixed-use. Thorough reporting for buyers, sellers, and investors.</p>
-        <div class="service-tag">All Property Types</div>
-      </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/thermal-imaging-for-home-inspections.jpg" alt="Thermal Imaging"></div>
-      <div class="service-card-body">
-        <div class="service-num">06</div>
-        <h3>Infrared Thermal Imaging</h3>
-        <p>Included free on every inspection. Reveals hidden moisture, insulation gaps, and electrical hotspots invisible to the naked eye.</p>
-        <div class="service-tag">Included Free</div>
-      </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/Mold_Testing_Air_Pump_u0x1xj.jpg" alt="Mold Testing"></div>
-      <div class="service-card-body">
-        <div class="service-num">07</div>
-        <h3>Mold &amp; Air Quality</h3>
-        <p>Lab-certified mold testing and indoor air quality sampling. Critical for older homes, post-flood properties, or anywhere you suspect a problem.</p>
-        <div class="service-tag">Optional Add-On</div>
-      </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card-img"><img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/fairbairn-introducting-breeze-radon-monitoring.png" alt="Radon Testing"></div>
-      <div class="service-card-body">
-        <div class="service-num">08</div>
-        <h3>Radon Testing</h3>
-        <p>Radon is the second leading cause of lung cancer in Canada. We offer short and long-term testing for peace of mind.</p>
-        <div class="service-tag">Health &amp; Safety</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIFFERENCE VS -->
-<section id="difference">
-  <div class="diff-intro reveal">
-    <div>
-      <p class="section-label">The Fairbairn Difference</p>
-      <h2>No One Else<br><em>Does This.</em></h2>
-    </div>
-    <p>Most inspection firms do the bare minimum. We include services as standard that others charge extra for — or simply don't offer. See the difference for yourself.</p>
-  </div>
-
-  <div class="diff-vs reveal">
-
-    <!-- HEADERS -->
-    <div class="diff-col-header us"><div class="col-dot"></div> Fairbairn Inspections</div>
-    <div class="diff-col-header them"><div class="col-dot"></div> Everyone Else</div>
-
-    <!-- ROW 1 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> Full Colour Report with Photos</div>
-    <div class="diff-row-them"><div class="diff-cross">✗</div> Full Colour Report with Photos</div>
-
-    <!-- ROW 2 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> Same-Day Report Delivery</div>
-    <div class="diff-row-them"><div class="diff-cross">✗</div> Same-Day Report Delivery</div>
-
-    <!-- ROW 3 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> FREE Thermal Imaging (Infrared)</div>
-    <div class="diff-row-them"><div class="diff-cross">✗</div> FREE Thermal Imaging (Infrared)</div>
-
-    <!-- ROW 4 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> FREE Home Maintenance Book</div>
-    <div class="diff-row-them"><div class="diff-cross">✗</div> FREE Home Maintenance Book</div>
-
-    <!-- ROW 5 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> Appliance Testing</div>
-    <div class="diff-row-them"><div class="diff-cross">?</div> Appliance Testing</div>
-
-    <!-- ROW 6 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> Combustible Gas Leak Detection</div>
-    <div class="diff-row-them"><div class="diff-cross">✗</div> Combustible Gas Leak Detection</div>
-
-    <!-- ROW 7 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> Mold &amp; Air Quality Testing</div>
-    <div class="diff-row-them"><div class="diff-cross">✗</div> Mold &amp; Air Quality Testing</div>
-
-    <!-- ROW 8 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> Repair Cost Estimates</div>
-    <div class="diff-row-them"><div class="diff-cross">?</div> Repair Cost Estimates</div>
-
-    <!-- ROW 9 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> Fully Licensed, Bonded &amp; Insured</div>
-    <div class="diff-row-them"><div class="diff-cross">?</div> Fully Licensed, Bonded &amp; Insured</div>
-
-    <!-- ROW 10 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> A+ BBB Rating</div>
-    <div class="diff-row-them"><div class="diff-cross">?</div> A+ BBB Rating</div>
-
-    <!-- ROW 11 -->
-    <div class="diff-row-us" style="border-bottom:none;"><div class="diff-check">✓</div> Your Building Consultant for Life</div>
-    <div class="diff-row-them" style="border-bottom:none;"><div class="diff-cross">✗</div> Your Building Consultant for Life</div>
-
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
+<!-- TEAM -->
+<section id="team-grid">
   <div class="reveal">
-    <p class="section-label">Client Reviews</p>
-    <h2>What Vancouver<br><em>Homebuyers Say</em></h2>
+    <p class="section-label">Our Inspectors</p>
+    <h2>25+ Years.<br><em>Still Growing.</em></h2>
   </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">David Fairbairn was by far the best home inspector I have ever had the pleasure to hire — not only punctual, knowledgeable, and very thorough, but also very patient.</p>
-      <div class="testi-author">Maria W. · Port Coquitlam</div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">Your knowledge base, attention to detail and professionalism is by far the best that I have seen in the industry. Every realtor should know your name.</p>
-      <div class="testi-author">Licensed Realtor · Vancouver, BC</div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">David found things I never would have spotted on my own. The thermal imaging alone was worth every penny — there was hidden moisture behind the master bath wall.</p>
-      <div class="testi-author">J. Thompson · Coquitlam</div>
-    </div>
-  </div>
-</section>
 
-<!-- PROCESS -->
-<section id="process">
-  <div class="reveal">
-    <p class="section-label">How It Works</p>
-    <h2>Simple, <em>Straightforward.</em></h2>
-  </div>
-  <div class="process-grid reveal">
-    <div class="process-step">
-      <div class="process-num">01</div>
-      <h3>Book Online or By Phone</h3>
-      <p>Schedule in minutes online or call us directly. We confirm same-day and work around your timeline — including weekends.</p>
+  <div class="team-list">
+    <div class="team-bio reveal">
+      <div class="team-bio-img-wrap">
+        <img src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/david.jpg" alt="David Fairbairn, Home Inspector">
+      </div>
+      <div class="team-bio-text">
+        <p class="section-label">Founder</p>
+        <h2>David Fairbairn</h2>
+        <p class="team-bio-role">Licensed Home Inspector · BC License 60397</p>
+        <p>David Fairbairn is a Metro Vancouver building expert with over 25 years in the industry. He's been featured on Global TV News and in the 24 Newspaper, and brings an obsessive attention to detail to every single inspection.</p>
+        <p>He founded Fairbairn Inspection Services because he believed buyers deserved better — not rushed inspections and vague reports, but honest, thorough findings they could actually act on.</p>
+        <div class="team-creds">
+          <div class="cred-item"><div class="cred-icon"></div> Licensed Home Inspector · Province of BC</div>
+          <div class="cred-item"><div class="cred-icon"></div> Fully Bonded &amp; Insured</div>
+          <div class="cred-item"><div class="cred-icon"></div> A+ Accredited BBB Business</div>
+          <div class="cred-item"><div class="cred-icon"></div> Featured on Global TV &amp; 24 Newspaper</div>
+        </div>
+      </div>
     </div>
-    <div class="process-step">
-      <div class="process-num">02</div>
-      <h3>We Inspect, You Watch</h3>
-      <p>You're encouraged to attend. David walks you through every finding in real time so you fully understand the property before you commit.</p>
-    </div>
-    <div class="process-step">
-      <div class="process-num">03</div>
-      <h3>Report Same Day</h3>
-      <p>A full-colour digital report with photos lands in your inbox the same day — before your offer deadline, not days later.</p>
-    </div>
-    <div class="process-step">
-      <div class="process-num">04</div>
-      <h3>We're Here for Life</h3>
-      <p>Questions after you move in? Call us. We're your building consultant for as long as you own the property — no extra charge.</p>
-    </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-img-wrap">
-    <img
-      src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/david.jpg"
-      alt="David Fairbairn, Home Inspector"
-      class="about-img">
-  </div>
-  <div class="about-text">
-    <p class="section-label reveal">About David</p>
-    <h2 class="reveal">25 Years.<br><em>Still the Most Thorough.</em></h2>
-    <p class="reveal">David Fairbairn is a Metro Vancouver building expert with over 25 years in the industry. He's been featured on Global TV News and in the 24 Newspaper, and brings an obsessive attention to detail to every single inspection.</p>
-    <p class="reveal">He founded Fairbairn Inspection Services because he believed buyers deserved better — not rushed inspections and vague reports, but honest, thorough findings they could actually act on.</p>
-    <div class="about-creds reveal">
-      <div class="cred-item"><div class="cred-icon"></div> Licensed Home Inspector · Province of BC</div>
-      <div class="cred-item"><div class="cred-icon"></div> Fully Bonded &amp; Insured</div>
-      <div class="cred-item"><div class="cred-icon"></div> A+ Accredited BBB Business</div>
-      <div class="cred-item"><div class="cred-icon"></div> Featured on Global TV &amp; 24 Newspaper</div>
-      <div class="cred-item"><div class="cred-icon"></div> Serving Vancouver, Burnaby, Surrey, Coquitlam, Richmond, North Van &amp; all of Metro Vancouver</div>
+    <div class="team-bio reveal">
+      <div class="team-bio-placeholder">KH</div>
+      <div class="team-bio-text">
+        <p class="section-label">Inspector</p>
+        <h2>Kevin Hill</h2>
+        <p class="team-bio-role">Licensed Home Inspector</p>
+        <p>Kevin Hill is a seasoned home inspector with over 5 years of experience, who joined Fairbairn Inspection Services in 2024. His expertise spans residential home inspections, mold and air-quality testing, and radon testing, and he's significantly contributed to the company's growth since coming on board.</p>
+        <p>Beyond home inspections, Kevin has ventured into drone work, helping expand Fairbairn Inspection Services' coverage across the Lower Mainland. When he's not inspecting homes, Kevin can often be found exploring the vast wilderness of British Columbia.</p>
+        <div class="team-creds">
+          <div class="cred-item"><div class="cred-icon"></div> Licensed Home Inspector</div>
+          <div class="cred-item"><div class="cred-icon"></div> Mold &amp; Air Quality Testing</div>
+          <div class="cred-item"><div class="cred-icon"></div> Radon Testing</div>
+          <div class="cred-item"><div class="cred-icon"></div> Drone-Assisted Roof &amp; Exterior Inspections</div>
+        </div>
+      </div>
     </div>
-    <a href="tel:6043952795" class="btn-primary reveal" style="display:inline-block;margin-top:2.5rem;">Call 604-395-2795</a>
-    <a href="team.html" class="reveal" style="display:inline-block;margin-top:1.25rem;margin-left:1rem;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Meet the Full Team →</a>
   </div>
 </section>
 
@@ -1346,7 +1318,6 @@ footer {
     <a href="tel:6043952795" class="book-phone">604-395-2795</a>
   </div>
 </div>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
