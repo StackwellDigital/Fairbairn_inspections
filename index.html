@@ -15,6 +15,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+img, iframe, svg, video { max-width: 100%; display: block; }
+html, body { overflow-x: hidden; }
+
 
 :root {
   --ink: #1a1a18;
@@ -514,8 +517,8 @@ h2 em { font-style: italic; color: var(--mid); }
 }
 
 .diff-col-header.them {
-  background: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.5);
 }
 
 .diff-col-header .col-dot {
@@ -525,7 +528,7 @@ h2 em { font-style: italic; color: var(--mid); }
   flex-shrink: 0;
 }
 .diff-col-header.us .col-dot { background: rgba(255,255,255,0.6); }
-.diff-col-header.them .col-dot { background: rgba(255,255,255,0.15); }
+.diff-col-header.them .col-dot { background: rgba(255,255,255,0.3); }
 
 .diff-rows {
   display: contents;
@@ -538,23 +541,23 @@ h2 em { font-style: italic; color: var(--mid); }
   display: flex;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   transition: background 0.2s;
 }
 
 .diff-row-us {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.05);
   color: white;
 }
-.diff-row-us:hover { background: rgba(255,255,255,0.06); }
+.diff-row-us:hover { background: rgba(255,255,255,0.09); }
 
 .diff-row-them {
-  background: transparent;
-  color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.015);
+  color: rgba(255,255,255,0.4);
   text-decoration: line-through;
-  text-decoration-color: rgba(255,255,255,0.12);
+  text-decoration-color: rgba(255,255,255,0.25);
 }
-.diff-row-them:hover { background: rgba(255,255,255,0.02); }
+.diff-row-them:hover { background: rgba(255,255,255,0.03); }
 
 .diff-check {
   width: 20px;
@@ -573,12 +576,12 @@ h2 em { font-style: italic; color: var(--mid); }
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.65rem;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.4);
   flex-shrink: 0;
 }
 
@@ -669,10 +672,23 @@ h2 em { font-style: italic; color: var(--mid); }
 
 .process-num {
   font-family: var(--serif);
-  font-size: 4rem;
-  color: var(--cream);
+  font-size: 3.4rem;
+  color: var(--rust);
+  opacity: 0.85;
   line-height: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  position: relative;
+  display: inline-block;
+}
+.process-num::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 2px;
+  width: 28px;
+  height: 3px;
+  background: var(--rust);
+  opacity: 0.85;
 }
 
 .process-step h3 {
@@ -796,6 +812,14 @@ h2 em { font-style: italic; color: var(--mid); }
   text-decoration: none;
 }
 .book-phone:hover { color: white; }
+
+.book-email {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+}
+.book-email:hover { color: rgba(255,255,255,0.75); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -992,7 +1016,7 @@ footer {
   .diff-row-them { display: none; }
   .diff-vs { grid-template-columns: 1fr; background: none; gap: 0; }
   .diff-col-header.us { padding: 1rem 1.25rem; margin-bottom: 2px; }
-  .diff-row-us { padding: 0.9rem 1.25rem; font-size: 0.82rem; }
+  .diff-row-us { padding: 1.1rem 1.25rem; font-size: 0.88rem; }
 
   /* TESTIMONIALS */
   .testi-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -1007,7 +1031,7 @@ footer {
     padding: 1.75rem 1.25rem;
   }
   .process-step:last-child { border-bottom: none; }
-  .process-num { font-size: 3rem; margin-bottom: 0.75rem; }
+  .process-num { font-size: 2.75rem; margin-bottom: 1.5rem; }
 
   /* ABOUT */
   .about-img-wrap { min-height: 70vw; max-height: none; }
@@ -1032,7 +1056,6 @@ footer {
   .hero-right { height: 72vw; }
   .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
   .testi-card::before { display: none; }
-  .diff-row-us { font-size: 0.78rem; }
 }
 </style>
 </head>
@@ -1224,8 +1247,8 @@ footer {
     <div class="diff-row-them"><div class="diff-cross">✗</div> FREE Thermal Imaging (Infrared)</div>
 
     <!-- ROW 4 -->
-    <div class="diff-row-us"><div class="diff-check">✓</div> FREE Home Maintenance Book</div>
-    <div class="diff-row-them"><div class="diff-cross">✗</div> FREE Home Maintenance Book</div>
+    <div class="diff-row-us"><div class="diff-check">✓</div> 90 Day Warranty</div>
+    <div class="diff-row-them"><div class="diff-cross">✗</div> 90 Day Warranty</div>
 
     <!-- ROW 5 -->
     <div class="diff-row-us"><div class="diff-check">✓</div> Appliance Testing</div>
@@ -1313,37 +1336,13 @@ footer {
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-img-wrap">
-    <img
-      src="https://raw.githubusercontent.com/StackwellDigital/Fairbairn_inspections/main/david.jpg"
-      alt="David Fairbairn, Home Inspector"
-      class="about-img">
-  </div>
-  <div class="about-text">
-    <p class="section-label reveal">About David</p>
-    <h2 class="reveal">25 Years.<br><em>Still the Most Thorough.</em></h2>
-    <p class="reveal">David Fairbairn is a Metro Vancouver building expert with over 25 years in the industry. He's been featured on Global TV News and in the 24 Newspaper, and brings an obsessive attention to detail to every single inspection.</p>
-    <p class="reveal">He founded Fairbairn Inspection Services because he believed buyers deserved better — not rushed inspections and vague reports, but honest, thorough findings they could actually act on.</p>
-    <div class="about-creds reveal">
-      <div class="cred-item"><div class="cred-icon"></div> Licensed Home Inspector · Province of BC</div>
-      <div class="cred-item"><div class="cred-icon"></div> Fully Bonded &amp; Insured</div>
-      <div class="cred-item"><div class="cred-icon"></div> A+ Accredited BBB Business</div>
-      <div class="cred-item"><div class="cred-icon"></div> Featured on Global TV &amp; 24 Newspaper</div>
-      <div class="cred-item"><div class="cred-icon"></div> Serving Vancouver, Burnaby, Surrey, Coquitlam, Richmond, North Van &amp; all of Metro Vancouver</div>
-    </div>
-    <a href="tel:6043952795" class="btn-primary reveal" style="display:inline-block;margin-top:2.5rem;">Call 604-395-2795</a>
-    <a href="team.html" class="reveal" style="display:inline-block;margin-top:1.25rem;margin-left:1rem;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Meet the Full Team →</a>
-  </div>
-</section>
-
 <!-- BOOK CTA -->
 <div class="book-cta" id="contact">
   <h2>Ready to Book<br><em>Your Inspection?</em></h2>
   <div class="book-cta-right">
     <a href="scheduling.html" class="btn-white">Schedule Online</a>
     <a href="tel:6043952795" class="book-phone">604-395-2795</a>
+    <a href="mailto:info@fairbairninspections.com" class="book-email">info@fairbairninspections.com</a>
   </div>
 </div>
 
@@ -1357,7 +1356,7 @@ footer {
     <a href="blog.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Blog</a> ·
     <a href="sample-report.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Sample Report</a> ·
     <a href="scheduling.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Schedule Online</a><br>
-    604-395-2795 · fairbairninspections.com<br>
+    604-395-2795 · <a href="mailto:info@fairbairninspections.com" style="color:rgba(255,255,255,0.3);text-decoration:none;">info@fairbairninspections.com</a><br>
     Vancouver · Burnaby · Surrey · Coquitlam · Richmond · North Vancouver
   </div>
   <div class="footer-credit">Website by <a href="https://stackwell.digital">Stackwell.Digital</a></div>

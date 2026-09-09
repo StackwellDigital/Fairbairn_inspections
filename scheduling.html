@@ -15,6 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+img, iframe, svg, video { max-width: 100%; display: block; }
+html, body { overflow-x: hidden; }
 
 :root {
   --ink: #1a1a18;
@@ -1196,6 +1198,11 @@ footer {
 .schedule-alt-line { flex: 1; height: 1px; background: var(--border); min-width: 40px; }
 .schedule-alt-text { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
 
+@media (max-width: 768px) {
+  .schedule-wrap { min-height: 600px; }
+  .schedule-wrap iframe { min-height: 600px; }
+}
+
 /* ─── TEAM ─── */
 #team-grid { background: white; border-top: 1px solid var(--border); }
 .team-list { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; border-top: 1px solid var(--border); }
@@ -1292,11 +1299,12 @@ footer {
 
   <div class="schedule-alt reveal">
     <div class="schedule-alt-line"></div>
-    <div class="schedule-alt-text">Or Book By Phone</div>
+    <div class="schedule-alt-text">Or Reach Us Directly</div>
     <div class="schedule-alt-line"></div>
   </div>
-  <div style="text-align:center;margin-top:2rem;">
+  <div style="text-align:center;margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
     <a href="tel:6043952795" class="btn-primary" style="background:var(--rust);display:inline-block;">Call 604-395-2795</a>
+    <a href="mailto:info@fairbairninspections.com" style="display:inline-block;padding:1rem 2.2rem;font-size:0.82rem;border:1px solid var(--border);color:var(--ink);text-decoration:none;transition:border-color 0.2s;">Email Us</a>
   </div>
 </section>
 <!-- FOOTER -->
@@ -1309,7 +1317,7 @@ footer {
     <a href="blog.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Blog</a> ·
     <a href="sample-report.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Sample Report</a> ·
     <a href="scheduling.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Schedule Online</a><br>
-    604-395-2795 · fairbairninspections.com<br>
+    604-395-2795 · <a href="mailto:info@fairbairninspections.com" style="color:rgba(255,255,255,0.3);text-decoration:none;">info@fairbairninspections.com</a><br>
     Vancouver · Burnaby · Surrey · Coquitlam · Richmond · North Vancouver
   </div>
   <div class="footer-credit">Website by <a href="https://stackwell.digital">Stackwell.Digital</a></div>
