@@ -14,22 +14,25 @@
 /contact                                            /index.html#contact 301
 
 # ── Geo-targeted "Home Inspector [City]" landing pages ──
-# These carry real local SEO value with no 1:1 replacement yet —
-# routed to Services for now. Flagged as a follow-up: worth rebuilding
-# as dedicated city pages in the new design rather than redirecting long-term.
-/home-inspector-vancouver-bc-v5k/                   /index.html#services 301
-/home-inspector-surrey-bc-v3r/                      /index.html#services 301
-/home-inspector-burnaby-bc-v3j-v3n/                 /index.html#services 301
-/home-inspector-coquitlam-bc-v3b-v3c/                /index.html#services 301
-/home-inspector-richmond-bc-v6v-v6w/                /index.html#services 301
-/home-inspector-westminster-bc-v3l/                 /index.html#services 301
-/home-inspector-north-vancouver-bc-v7g-v7h/         /index.html#services 301
-/home-inspector-port-coquitlam-bc-v5k/              /index.html#services 301
-/home-inspector-maple-ridge-bc-v2w-v2x/             /index.html#services 301
-/home-inspector-langley-bc-v3a-v1m/                 /index.html#services 301
-
-# Catch-all safety net for any geo page not explicitly listed above
-/home-inspector-*                                   /index.html#services 301
+# Rebuilt as real dedicated city pages (Sept 2026) — each one now lives at
+# its own path (e.g. /home-inspector-vancouver-bc-v5k/index.html) and is
+# served directly. IMPORTANT: no /home-inspector-* wildcard redirect here —
+# Cloudflare Pages redirects always win over a matching static asset
+# regardless of specificity (first-match-wins, not most-specific-wins), so a
+# catch-all would silently swallow every one of these pages before the
+# static file is ever served. If a NEW unbuilt geo page shows up later, add
+# its exact path as its own explicit rule above this comment, or build the
+# real page instead. Full list of pages now live:
+#   /home-inspector-vancouver-bc-v5k/
+#   /home-inspector-surrey-bc-v3r/
+#   /home-inspector-burnaby-bc-v3j-v3n/
+#   /home-inspector-coquitlam-bc-v3b-v3c/
+#   /home-inspector-richmond-bc-v6v-v6w/
+#   /home-inspector-westminster-bc-v3l/
+#   /home-inspector-north-vancouver-bc-v7g-v7h/
+#   /home-inspector-port-coquitlam-bc-v5k/
+#   /home-inspector-maple-ridge-bc-v2w-v2x/
+#   /home-inspector-langley-bc-v3a-v1m/
 
 # ── Blog posts already migrated into blog.html (deep-link to the real section) ──
 /surrey-new-roof-inspection/                        /blog.html#post-surrey-roof 301
