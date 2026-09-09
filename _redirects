@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────────────────────
+# Fairbairn Inspection Services — legacy URL redirects
+# Old WordPress site → new static site on Cloudflare Pages
+# All 301s (permanent) to pass along existing SEO link equity.
+# Cloudflare Pages reads this file automatically from the repo root.
+# ─────────────────────────────────────────────────────────────
+
+# ── Core pages ──
+/blog-2/                                            /blog.html 301
+/blog-2                                             /blog.html 301
+/sample-home-inspection-report/                     /sample-report.html 301
+/sample-home-inspection-report                      /sample-report.html 301
+/contact/                                           /index.html#contact 301
+/contact                                            /index.html#contact 301
+
+# ── Geo-targeted "Home Inspector [City]" landing pages ──
+# These carry real local SEO value with no 1:1 replacement yet —
+# routed to Services for now. Flagged as a follow-up: worth rebuilding
+# as dedicated city pages in the new design rather than redirecting long-term.
+/home-inspector-vancouver-bc-v5k/                   /index.html#services 301
+/home-inspector-surrey-bc-v3r/                      /index.html#services 301
+/home-inspector-burnaby-bc-v3j-v3n/                 /index.html#services 301
+/home-inspector-coquitlam-bc-v3b-v3c/                /index.html#services 301
+/home-inspector-richmond-bc-v6v-v6w/                /index.html#services 301
+/home-inspector-westminster-bc-v3l/                 /index.html#services 301
+/home-inspector-north-vancouver-bc-v7g-v7h/         /index.html#services 301
+/home-inspector-port-coquitlam-bc-v5k/              /index.html#services 301
+/home-inspector-maple-ridge-bc-v2w-v2x/             /index.html#services 301
+/home-inspector-langley-bc-v3a-v1m/                 /index.html#services 301
+
+# Catch-all safety net for any geo page not explicitly listed above
+/home-inspector-*                                   /index.html#services 301
+
+# ── Blog posts already migrated into blog.html (deep-link to the real section) ──
+/surrey-new-roof-inspection/                        /blog.html#post-surrey-roof 301
+/new-construction-home-inspection-tips/             /blog.html#post-new-construction 301
+
+# ── Blog posts not yet migrated — send to the blog index for now ──
+/worst-designed-shower-ever/                        /blog.html 301
+/leaking-house-shaughnessy-vancouver-home-inspector/ /blog.html 301
+/inspecting-mobile-home-surrey-featured-home-inspection/ /blog.html 301
+/included-condo-inspection-bc/                      /blog.html 301
+
+# ── Category / tag archives ──
+/category/*                                         /blog.html 301
+/tag/*                                               /blog.html 301
+
+# NOTE: Any individual old blog post not explicitly listed above is NOT
+# covered by a wildcard here — Cloudflare Pages only supports a trailing
+# "/*" splat, not mid-path globbing, so a blind catch-all isn't reliable
+# and risks swallowing real paths. See message below for how to get the
+# complete list and add the remaining posts explicitly.
