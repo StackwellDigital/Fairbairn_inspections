@@ -1197,6 +1197,105 @@ footer {
 .hours-note { margin-top: 1rem; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
 @media (max-width: 768px) { .book-info-btns a { flex: 1 1 100%; text-align: center; } }
 
+/* ─── BOOKING REQUEST FORM ─── */
+.req-wrap { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); max-width: 820px; }
+.req-wrap h3 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.15; color: var(--ink); margin-bottom: 0.5rem; }
+.req-wrap h3 em { font-style: italic; color: var(--mid); }
+.req-intro { font-size: 0.9rem; color: var(--mid); line-height: 1.8; margin-bottom: 2.25rem; max-width: 560px; }
+.req-form { display: flex; flex-direction: column; gap: 2rem; }
+.req-group { border: none; display: flex; flex-direction: column; gap: 1rem; }
+.req-legend { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.25rem; padding: 0; }
+.req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+.req-grid .full { grid-column: 1 / -1; }
+.req-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.req-field label { font-size: 0.8rem; font-weight: 500; color: var(--ink); }
+.req-field label .opt { font-weight: 300; color: var(--mid); }
+.req-field label .req { color: var(--rust); }
+.req-field input, .req-field textarea {
+  font: inherit; font-size: 0.95rem; font-weight: 400; color: var(--ink);
+  background: var(--paper); border: 1px solid rgba(26,26,24,0.18); border-radius: 0;
+  padding: 0.85rem 1rem; width: 100%; transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none; appearance: none;
+}
+.req-field textarea { min-height: 130px; resize: vertical; line-height: 1.6; }
+.req-field input:focus, .req-field textarea:focus { outline: none; border-color: var(--rust); background: white; box-shadow: 0 0 0 3px rgba(29,95,120,0.12); }
+.req-field.invalid input, .req-field.invalid textarea { border-color: #b3261e; }
+.req-err { font-size: 0.72rem; color: #b3261e; display: none; }
+.invalid > .req-err, .req-group.invalid > .req-err { display: block; }
+
+/* check-style pill options (role + time) */
+.req-options { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.req-opt { position: relative; }
+.req-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.req-opt label {
+  display: flex; align-items: center; gap: 0.7rem; cursor: pointer; user-select: none;
+  padding: 0.8rem 1.3rem 0.8rem 1rem; border: 1px solid rgba(26,26,24,0.18); background: var(--paper);
+  font-size: 0.88rem; font-weight: 400; color: var(--ink); transition: border-color 0.2s, background 0.2s;
+}
+.req-opt label::before {
+  content: ''; width: 18px; height: 18px; flex-shrink: 0; border: 1.5px solid var(--light); background: white;
+  transition: all 0.15s;
+}
+.req-opt input:checked + label { border-color: var(--rust); background: rgba(29,95,120,0.06); }
+.req-opt input:checked + label::before {
+  background: var(--rust) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E") center/14px no-repeat;
+  border-color: var(--rust);
+}
+.req-opt input:focus-visible + label { box-shadow: 0 0 0 3px rgba(29,95,120,0.25); }
+.req-hint { font-size: 0.75rem; color: var(--mid); }
+
+/* multi-date calendar */
+.cal { border: 1px solid rgba(26,26,24,0.18); background: white; max-width: 380px; user-select: none; }
+.cal-head { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0.75rem 0.5rem; }
+.cal-title { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); }
+.cal-nav { width: 36px; height: 36px; border: 1px solid var(--border); background: var(--paper); cursor: pointer; font-size: 1rem; color: var(--ink); display: flex; align-items: center; justify-content: center; }
+.cal-nav:hover:not(:disabled) { border-color: var(--rust); color: var(--rust); }
+.cal-nav:disabled { opacity: 0.3; cursor: default; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; padding: 0 0.75rem 0.75rem; }
+.cal-dow { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-align: center; padding: 0.4rem 0; }
+.cal-day {
+  aspect-ratio: 1; border: 1px solid transparent; background: none; cursor: pointer;
+  font: inherit; font-size: 0.85rem; font-weight: 400; color: var(--ink); display: flex; align-items: center; justify-content: center;
+  transition: background 0.12s, color 0.12s;
+}
+.cal-day:hover:not(:disabled) { border-color: var(--rust); }
+.cal-day.today { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.cal-day[aria-pressed="true"] { background: var(--rust); color: white; }
+.cal-day:disabled { color: var(--light); cursor: default; }
+.cal-day:focus-visible { outline: 2px solid var(--rust); outline-offset: 1px; }
+.cal-foot { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.75rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
+.cal-clear { background: none; border: none; font: inherit; color: var(--rust); cursor: pointer; letter-spacing: inherit; text-transform: inherit; }
+.date-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.25rem; }
+.date-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--cream); padding: 0.4rem 0.5rem 0.4rem 0.8rem; font-size: 0.8rem; font-weight: 400; }
+.date-chip button { background: none; border: none; cursor: pointer; color: var(--mid); font-size: 1rem; line-height: 1; padding: 0 0.2rem; }
+.date-chip button:hover { color: #b3261e; }
+
+.req-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+.req-submit { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.req-submit button {
+  background: var(--rust); color: white; border: none; cursor: pointer; font: inherit; font-size: 0.88rem; font-weight: 500;
+  padding: 1.05rem 2.6rem; transition: background 0.2s, opacity 0.2s;
+}
+.req-submit button:hover:not(:disabled) { background: var(--rust-dark); }
+.req-submit button:disabled { opacity: 0.6; cursor: wait; }
+.req-status { font-size: 0.85rem; }
+.req-status.err { color: #b3261e; }
+.req-success { display: none; background: var(--ink); color: white; padding: 2.5rem; border-top: 3px solid var(--rust); }
+.req-success h4 { font-family: var(--serif); font-size: 1.7rem; font-weight: 400; margin-bottom: 0.6rem; }
+.req-success p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.8; }
+.req-success a { color: white; }
+.req-wrap.sent .req-form { display: none; }
+.req-wrap.sent .req-success { display: block; }
+
+@media (max-width: 768px) {
+  .req-grid { grid-template-columns: 1fr; }
+  .req-options { flex-direction: column; }
+  .req-opt label { width: 100%; }
+  .cal { max-width: 100%; }
+  .req-submit button { width: 100%; }
+  .req-success { padding: 2rem 1.25rem; }
+}
+
 /* ─── TEAM ─── */
 #team-grid { background: white; border-top: 1px solid var(--border); }
 .team-list { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; border-top: 1px solid var(--border); }
@@ -1261,7 +1360,7 @@ footer {
   <div class="page-hero-inner">
     <p class="page-hero-eyebrow">Book Your Inspection</p>
     <h1>Let's Get You<br><em>Booked.</em></h1>
-    <p class="page-hero-sub">Email us or call/text and we'll get your inspection on the calendar.</p>
+    <p class="page-hero-sub">Email, call/text, or send a booking request below and we'll get your inspection on the calendar.</p>
   </div>
 </div>
 
@@ -1281,11 +1380,129 @@ footer {
   </div>
 
   <div class="book-info reveal">
-    <p class="book-info-lead">Please email <a href="mailto:info@fairbairninspections.com">info@fairbairninspections.com</a> or call/text <a href="tel:6043952795">604-395-2795</a> to book your inspection.</p>
+    <p class="book-info-lead">Please email <a href="mailto:info@fairbairninspections.com">info@fairbairninspections.com</a> or call/text <a href="tel:6043952795">604-395-2795</a> to book your inspection or for a quote.</p>
     <div class="book-info-btns">
       <a href="tel:6043952795" class="btn-primary" style="background:var(--rust);display:inline-block;">Call 604-395-2795</a>
       <a href="sms:6043952795" style="display:inline-block;padding:1rem 2.2rem;font-size:0.82rem;border:1px solid var(--border);color:var(--ink);text-decoration:none;">Text Us</a>
       <a href="mailto:info@fairbairninspections.com" style="display:inline-block;padding:1rem 2.2rem;font-size:0.82rem;border:1px solid var(--border);color:var(--ink);text-decoration:none;">Email Us</a>
+    </div>
+
+    <!-- BOOKING REQUEST FORM -->
+    <div class="req-wrap" id="request">
+      <p class="section-label">Request for Booking</p>
+      <h3>Prefer to fill it in?<br><em>Send us a request.</em></h3>
+      <p class="req-intro">Give us the details and the dates that work, and we'll confirm a time or send you a quote. This is a request, not a confirmed booking. We'll be in touch during office hours.</p>
+
+      <form class="req-form" id="reqForm" action="/api/booking" method="POST" novalidate>
+        <!-- Role -->
+        <fieldset class="req-group" id="grpRole">
+          <legend class="req-legend">I am the <span class="req">*</span></legend>
+          <div class="req-options">
+            <div class="req-opt"><input type="radio" name="role" id="roleClient" value="Client" required><label for="roleClient">Client</label></div>
+            <div class="req-opt"><input type="radio" name="role" id="roleAgent" value="Agent"><label for="roleAgent">Agent</label></div>
+          </div>
+          <span class="req-err">Please choose Client or Agent.</span>
+        </fieldset>
+
+        <!-- Client -->
+        <fieldset class="req-group">
+          <legend class="req-legend">Client Details</legend>
+          <div class="req-grid">
+            <div class="req-field full">
+              <label for="clientName">Client's name <span class="req">*</span></label>
+              <input type="text" id="clientName" name="clientName" autocomplete="name" maxlength="120" required>
+              <span class="req-err">Please enter the client's name.</span>
+            </div>
+            <div class="req-field">
+              <label for="clientEmail">Client's email <span class="req" data-client-req>*</span><span class="opt" data-agent-opt hidden> (optional)</span></label>
+              <input type="email" id="clientEmail" name="clientEmail" autocomplete="email" maxlength="160">
+              <span class="req-err">Please enter a valid email.</span>
+            </div>
+            <div class="req-field">
+              <label for="clientPhone">Client's phone <span class="req" data-client-req>*</span><span class="opt" data-agent-opt hidden> (optional)</span></label>
+              <input type="tel" id="clientPhone" name="clientPhone" autocomplete="tel" maxlength="30">
+              <span class="req-err">Please enter a valid phone number.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Agent -->
+        <fieldset class="req-group">
+          <legend class="req-legend">Agent Details</legend>
+          <div class="req-grid">
+            <div class="req-field">
+              <label for="agentName">Agent's name <span class="req" data-agent-req hidden>*</span><span class="opt" data-client-opt> (if applicable)</span></label>
+              <input type="text" id="agentName" name="agentName" maxlength="120">
+              <span class="req-err">Please enter the agent's name.</span>
+            </div>
+            <div class="req-field">
+              <label for="agentEmail">Agent's email <span class="req" data-agent-req hidden>*</span><span class="opt" data-client-opt> (if applicable)</span></label>
+              <input type="email" id="agentEmail" name="agentEmail" maxlength="160">
+              <span class="req-err">Please enter a valid email.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Property -->
+        <fieldset class="req-group">
+          <legend class="req-legend">Property</legend>
+          <div class="req-field">
+            <label for="address">Property address <span class="req">*</span></label>
+            <input type="text" id="address" name="address" autocomplete="street-address" maxlength="250" placeholder="Street, unit #, city" required>
+            <span class="req-err">Please enter the property address.</span>
+          </div>
+        </fieldset>
+
+        <!-- Dates -->
+        <fieldset class="req-group" id="grpDates">
+          <legend class="req-legend">Dates Available <span class="req">*</span></legend>
+          <p class="req-hint">Tap as many dates as work for you.</p>
+          <div class="cal" id="cal" aria-label="Choose available dates"></div>
+          <div class="date-chips" id="dateChips" aria-live="polite"></div>
+          <input type="hidden" name="dates" id="datesField">
+          <noscript>
+            <div class="req-field"><label for="datesText">Dates available</label><input type="text" id="datesText" name="datesText" placeholder="e.g. Oct 3, Oct 5, Oct 6"></div>
+          </noscript>
+          <span class="req-err">Please pick at least one date.</span>
+        </fieldset>
+
+        <!-- Time -->
+        <fieldset class="req-group" id="grpTime">
+          <legend class="req-legend">Preferred Time <span class="req">*</span></legend>
+          <div class="req-options">
+            <div class="req-opt"><input type="radio" name="time" id="timeAm" value="Morning" required><label for="timeAm">Morning</label></div>
+            <div class="req-opt"><input type="radio" name="time" id="timePm" value="Afternoon"><label for="timePm">Afternoon</label></div>
+            <div class="req-opt"><input type="radio" name="time" id="timeAny" value="Either"><label for="timeAny">Either</label></div>
+          </div>
+          <span class="req-err">Please choose a time preference.</span>
+        </fieldset>
+
+        <!-- Comments -->
+        <fieldset class="req-group">
+          <legend class="req-legend">Comments</legend>
+          <div class="req-field">
+            <label for="comments">Anything we should know? <span class="opt">(optional)</span></label>
+            <textarea id="comments" name="comments" maxlength="3000" placeholder="Property type, square footage, suite, add-on services (radon, mould, sewer scope), access notes, etc."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- spam trap: humans never see this -->
+        <div class="req-hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="t" id="tField">
+
+        <div class="req-submit">
+          <button type="submit" id="reqBtn">Send Booking Request</button>
+          <span class="req-status" id="reqStatus" role="status"></span>
+        </div>
+      </form>
+
+      <div class="req-success" id="reqSuccess" tabindex="-1">
+        <h4>Request received.</h4>
+        <p>Thanks, we've got your booking request and will be in touch during office hours to confirm a time or send a quote. Need it sooner? Call or text <a href="tel:6043952795">604-395-2795</a>.</p>
+      </div>
     </div>
 
     <div class="hours-box">
@@ -1347,6 +1564,165 @@ footer {
     });
   }, { threshold: 0.1 });
   revEls.forEach(el => obs.observe(el));
+
+  // ─── BOOKING REQUEST FORM ───
+  (function () {
+    const form = document.getElementById('reqForm');
+    if (!form) return;
+    const wrap = document.getElementById('request');
+    const calEl = document.getElementById('cal');
+    const chipsEl = document.getElementById('dateChips');
+    const datesField = document.getElementById('datesField');
+    const btn = document.getElementById('reqBtn');
+    const statusEl = document.getElementById('reqStatus');
+    document.getElementById('tField').value = Date.now();
+
+    // no-JS fallback lands back here with ?sent=1
+    if (new URLSearchParams(location.search).get('sent') === '1') wrap.classList.add('sent');
+
+    // ── Calendar ──
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const DOW = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+    const pad = n => String(n).padStart(2, '0');
+    const iso = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+    const today = new Date(); today.setHours(0,0,0,0);
+    const maxDate = new Date(today); maxDate.setMonth(maxDate.getMonth() + 6);
+    let view = new Date(today.getFullYear(), today.getMonth(), 1);
+    const selected = new Set();
+    let focusIso = null;
+
+    function fmt(isoStr) {
+      const [y, m, d] = isoStr.split('-').map(Number);
+      return new Date(y, m - 1, d).toLocaleDateString('en-CA', { weekday: 'short', month: 'short', day: 'numeric' });
+    }
+
+    function render() {
+      const y = view.getFullYear(), m = view.getMonth();
+      const first = new Date(y, m, 1).getDay();
+      const days = new Date(y, m + 1, 0).getDate();
+      const prevOk = new Date(y, m, 1) > new Date(today.getFullYear(), today.getMonth(), 1);
+      const nextOk = new Date(y, m + 1, 1) <= maxDate;
+      let h = '<div class="cal-head">' +
+        '<button type="button" class="cal-nav" data-nav="-1" aria-label="Previous month"' + (prevOk ? '' : ' disabled') + '>&#8249;</button>' +
+        '<span class="cal-title" aria-live="polite">' + MONTHS[m] + ' ' + y + '</span>' +
+        '<button type="button" class="cal-nav" data-nav="1" aria-label="Next month"' + (nextOk ? '' : ' disabled') + '>&#8250;</button></div>' +
+        '<div class="cal-grid" role="grid">';
+      DOW.forEach(d => h += '<span class="cal-dow">' + d + '</span>');
+      for (let i = 0; i < first; i++) h += '<span></span>';
+      for (let d = 1; d <= days; d++) {
+        const dt = new Date(y, m, d);
+        const k = iso(dt);
+        const off = dt < today || dt > maxDate;
+        const on = selected.has(k);
+        h += '<button type="button" class="cal-day' + (dt.getTime() === today.getTime() ? ' today' : '') + '" data-d="' + k + '"' +
+          ' aria-pressed="' + on + '" aria-label="' + dt.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' }) + (on ? ', selected' : '') + '"' +
+          (off ? ' disabled' : '') + '>' + d + '</button>';
+      }
+      h += '</div><div class="cal-foot"><span id="calCount">' + selected.size + ' selected</span>' +
+        (selected.size ? '<button type="button" class="cal-clear" data-clear>Clear all</button>' : '<span></span>') + '</div>';
+      calEl.innerHTML = h;
+      if (focusIso) { const f = calEl.querySelector('[data-d="' + focusIso + '"]'); if (f) f.focus(); focusIso = null; }
+      renderChips();
+    }
+
+    function renderChips() {
+      const list = [...selected].sort();
+      datesField.value = list.join(',');
+      chipsEl.innerHTML = list.map(k =>
+        '<span class="date-chip">' + fmt(k) + '<button type="button" data-rm="' + k + '" aria-label="Remove ' + fmt(k) + '">&times;</button></span>'
+      ).join('');
+      if (list.length) document.getElementById('grpDates').classList.remove('invalid');
+    }
+
+    calEl.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b || b.disabled) return;
+      if (b.dataset.nav) { view.setMonth(view.getMonth() + Number(b.dataset.nav)); render(); return; }
+      if ('clear' in b.dataset) { selected.clear(); render(); return; }
+      if (b.dataset.d) { selected.has(b.dataset.d) ? selected.delete(b.dataset.d) : selected.add(b.dataset.d); focusIso = b.dataset.d; render(); }
+    });
+    // arrow-key navigation between days
+    calEl.addEventListener('keydown', e => {
+      const b = e.target.closest('.cal-day'); if (!b) return;
+      const step = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 }[e.key]; if (!step) return;
+      e.preventDefault();
+      const [y, m, d] = b.dataset.d.split('-').map(Number);
+      const t = new Date(y, m - 1, d + step);
+      if (t < today || t > maxDate) return;
+      if (t.getMonth() !== view.getMonth()) view = new Date(t.getFullYear(), t.getMonth(), 1);
+      focusIso = iso(t); render();
+    });
+    chipsEl.addEventListener('click', e => {
+      const b = e.target.closest('[data-rm]'); if (!b) return;
+      selected.delete(b.dataset.rm); render();
+    });
+    render();
+
+    // ── Role toggles which contact fields are required ──
+    function role() { const r = form.querySelector('input[name="role"]:checked'); return r ? r.value : null; }
+    function applyRole() {
+      const isAgent = role() === 'Agent';
+      form.querySelectorAll('[data-client-req]').forEach(el => el.hidden = isAgent);
+      form.querySelectorAll('[data-agent-opt]').forEach(el => el.hidden = !isAgent);
+      form.querySelectorAll('[data-agent-req]').forEach(el => el.hidden = !isAgent);
+      form.querySelectorAll('[data-client-opt]').forEach(el => el.hidden = isAgent);
+      document.getElementById('grpRole').classList.remove('invalid');
+      ['clientEmail','clientPhone','agentName','agentEmail'].forEach(id => document.getElementById(id).closest('.req-field').classList.remove('invalid'));
+    }
+    form.querySelectorAll('input[name="role"]').forEach(r => r.addEventListener('change', applyRole));
+    form.querySelectorAll('input[name="time"]').forEach(r => r.addEventListener('change', () => document.getElementById('grpTime').classList.remove('invalid')));
+    form.querySelectorAll('.req-field input, .req-field textarea').forEach(i => i.addEventListener('input', () => i.closest('.req-field').classList.remove('invalid')));
+
+    // ── Validation ──
+    const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const val = id => document.getElementById(id).value.trim();
+    const phoneOk = v => v.replace(/\D/g, '').length >= 10;
+    function flag(id, bad) { const el = document.getElementById(id); (el.classList.contains('req-group') ? el : el.closest('.req-field')).classList.toggle('invalid', bad); return bad; }
+
+    function validate() {
+      const isAgent = role() === 'Agent';
+      const bad = [];
+      if (flag('grpRole', !role())) bad.push('grpRole');
+      if (flag('clientName', !val('clientName'))) bad.push('clientName');
+      const ce = val('clientEmail'), cp = val('clientPhone');
+      if (flag('clientEmail', isAgent ? (ce && !EMAIL.test(ce)) : !EMAIL.test(ce))) bad.push('clientEmail');
+      if (flag('clientPhone', isAgent ? (cp && !phoneOk(cp)) : !phoneOk(cp))) bad.push('clientPhone');
+      const an = val('agentName'), ae = val('agentEmail');
+      if (flag('agentName', isAgent && !an)) bad.push('agentName');
+      if (flag('agentEmail', isAgent ? !EMAIL.test(ae) : (ae && !EMAIL.test(ae)))) bad.push('agentEmail');
+      if (flag('address', !val('address'))) bad.push('address');
+      if (flag('grpDates', selected.size === 0)) bad.push('grpDates');
+      if (flag('grpTime', !form.querySelector('input[name="time"]:checked'))) bad.push('grpTime');
+      return bad;
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      statusEl.textContent = ''; statusEl.className = 'req-status';
+      const bad = validate();
+      if (bad.length) {
+        const first = document.getElementById(bad[0]);
+        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const focusable = first.matches('input,textarea') ? first : first.querySelector('input,button');
+        if (focusable) setTimeout(() => focusable.focus({ preventScroll: true }), 350);
+        statusEl.textContent = 'Please fix the highlighted fields.'; statusEl.className = 'req-status err';
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending...';
+      const data = Object.fromEntries(new FormData(form).entries());
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+        const out = await res.json().catch(() => ({}));
+        if (!res.ok || !out.ok) throw new Error(out.error || 'Send failed');
+        wrap.classList.add('sent');
+        document.getElementById('reqSuccess').focus();
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'booking_request', role: data.role });
+      } catch (err) {
+        statusEl.innerHTML = 'Something went wrong sending your request. Please call/text <a href="tel:6043952795">604-395-2795</a> or email <a href="mailto:info@fairbairninspections.com">info@fairbairninspections.com</a>.';
+        statusEl.className = 'req-status err';
+        btn.disabled = false; btn.textContent = 'Send Booking Request';
+      }
+    });
+  })();
 </script>
 </body>
 </html>
