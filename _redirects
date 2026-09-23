@@ -6,12 +6,12 @@
 # ─────────────────────────────────────────────────────────────
 
 # ── Core pages ──
-/blog-2/                                            /blog.html 301
-/blog-2                                             /blog.html 301
-/sample-home-inspection-report/                     /sample-report.html 301
-/sample-home-inspection-report                      /sample-report.html 301
-/contact/                                           /index.html#contact 301
-/contact                                            /index.html#contact 301
+/blog-2/                                            /blog 301
+/blog-2                                             /blog 301
+/sample-home-inspection-report/                     /sample-report 301
+/sample-home-inspection-report                      /sample-report 301
+/contact/                                           /#contact 301
+/contact                                            /#contact 301
 
 # ── Geo-targeted "Home Inspector [City]" landing pages ──
 # Rebuilt as real dedicated city pages (Sept 2026) — each one now lives at
@@ -35,18 +35,18 @@
 #   /home-inspector-langley-bc-v3a-v1m/
 
 # ── Blog posts already migrated into blog.html (deep-link to the real section) ──
-/surrey-new-roof-inspection/                        /blog.html#post-surrey-roof 301
-/new-construction-home-inspection-tips/             /blog.html#post-new-construction 301
+/surrey-new-roof-inspection/                        /blog#post-surrey-roof 301
+/new-construction-home-inspection-tips/             /blog#post-new-construction 301
 
 # ── Blog posts not yet migrated — send to the blog index for now ──
-/worst-designed-shower-ever/                        /blog.html 301
-/leaking-house-shaughnessy-vancouver-home-inspector/ /blog.html 301
-/inspecting-mobile-home-surrey-featured-home-inspection/ /blog.html 301
-/included-condo-inspection-bc/                      /blog.html 301
+/worst-designed-shower-ever/                        /blog 301
+/leaking-house-shaughnessy-vancouver-home-inspector/ /blog 301
+/inspecting-mobile-home-surrey-featured-home-inspection/ /blog 301
+/included-condo-inspection-bc/                      /blog 301
 
 # ── Category / tag archives ──
-/category/*                                         /blog.html 301
-/tag/*                                               /blog.html 301
+/category/*                                         /blog 301
+/tag/*                                               /blog 301
 
 # NOTE: Any individual old blog post not explicitly listed above is NOT
 # covered by a wildcard here — Cloudflare Pages only supports a trailing

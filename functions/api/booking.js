@@ -105,7 +105,7 @@ export async function onRequestPost({ request, env }) {
         : href ? `<a href="${esc(href)}" style="color:#1d5f78">${esc(v)}</a>`
         : raw ? v : esc(v)}</td></tr>`).join('')}
   </table>
-  <p style="font-size:12px;color:#7a7268;margin-top:16px">Hit Reply to respond directly to ${replyTo.length ? esc(replyTo.join(' and ')) : 'the requester'}. Sent from the booking form at fairbairninspections.com/scheduling.html</p>
+  <p style="font-size:12px;color:#7a7268;margin-top:16px">Hit Reply to respond directly to ${replyTo.length ? esc(replyTo.join(' and ')) : 'the requester'}. Sent from the booking form at fairbairninspections.com/scheduling</p>
 </div></body></html>`;
 
   const text = [
@@ -149,7 +149,7 @@ function reply(json, status, error) {
     });
   }
   // No-JS fallback: bounce back to the page
-  const loc = status < 300 ? '/scheduling.html?sent=1#request' : '/scheduling.html#request';
+  const loc = status < 300 ? '/scheduling?sent=1#request' : '/scheduling#request';
   return new Response(null, { status: 303, headers: { Location: loc } });
 }
 
