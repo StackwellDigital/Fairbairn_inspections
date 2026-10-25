@@ -44,12 +44,178 @@
 /inspecting-mobile-home-surrey-featured-home-inspection/ /blog 301
 /included-condo-inspection-bc/                      /blog 301
 
-# ── Category / tag archives ──
-/category/*                                         /blog 301
-/tag/*                                               /blog 301
+# -- Service / info pages from the old WordPress site -> matching section of the homepage --
+/commercial-inspection/                                        /#services 301
+/commercial-inspection                                         /#services 301
+/commercial-building-inspections-vancouver/                    /#services 301
+/commercial-building-inspections-vancouver                     /#services 301
+/condominium-inspection/                                       /#services 301
+/condominium-inspection                                        /#services 301
+/townhouse-inspection/                                         /#services 301
+/townhouse-inspection                                          /#services 301
+/single-family-home-inspection/                                /#services 301
+/single-family-home-inspection                                 /#services 301
+/mobile-manufactured-home-inspections/                         /#services 301
+/mobile-manufactured-home-inspections                          /#services 301
+/thermal-imaging-infrared/                                     /#services 301
+/thermal-imaging-infrared                                      /#services 301
+/thermal-imaging-home-inspections/                             /#services 301
+/thermal-imaging-home-inspections                              /#services 301
+/radon-inspection/                                             /#services 301
+/radon-inspection                                              /#services 301
+/our-services/                                                 /#services 301
+/our-services                                                  /#services 301
+/difference/                                                   /#difference 301
+/difference                                                    /#difference 301
+/guarantee/                                                    /#difference 301
+/guarantee                                                     /#difference 301
+/free-home-maintenance-book/                                   /#difference 301
+/free-home-maintenance-book                                    /#difference 301
 
-# NOTE: Any individual old blog post not explicitly listed above is NOT
-# covered by a wildcard here — Cloudflare Pages only supports a trailing
-# "/*" splat, not mid-path globbing, so a blind catch-all isn't reliable
-# and risks swallowing real paths. See message below for how to get the
-# complete list and add the remaining posts explicitly.
+# -- Old About page -> team page --
+/about-the-inspector/                                          /team 301
+/about-the-inspector                                           /team 301
+
+# -- Review posts -> reviews section of the blog --
+/home_inspector_reviews/                                       /blog#post-reviews 301
+/home_inspector_reviews                                        /blog#post-reviews 301
+/customer-review-erik-p-westminster/                           /blog#post-reviews 301
+/customer-review-erik-p-westminster                            /blog#post-reviews 301
+/home-inspector-review-coquitlam-new/                          /blog#post-reviews 301
+/home-inspector-review-coquitlam-new                           /blog#post-reviews 301
+
+# -- Posts that map to a post already migrated into blog.html --
+/mold-windows/                                                 /blog#post-mold-windows 301
+/mold-windows                                                  /blog#post-mold-windows 301
+/video-mold-windows/                                           /blog#post-mold-windows 301
+/video-mold-windows                                            /blog#post-mold-windows 301
+/mold-crawlspaces-video/                                       /blog#post-mold-crawlspace 301
+/mold-crawlspaces-video                                        /blog#post-mold-crawlspace 301
+/construction-home-inspection-tips/                            /blog#post-new-construction 301
+/construction-home-inspection-tips                             /blog#post-new-construction 301
+
+# -- City-specific posts -> that city's landing page --
+/condo-inspection-east-vancouver/                              /home-inspector-vancouver-bc-v5k/ 301
+/condo-inspection-east-vancouver                               /home-inspector-vancouver-bc-v5k/ 301
+/new-house-inspection-coquitlam/                               /home-inspector-coquitlam-bc-v3b-v3c/ 301
+/new-house-inspection-coquitlam                                /home-inspector-coquitlam-bc-v3b-v3c/ 301
+
+# -- Remaining old blog posts not yet migrated -> blog index (swap for real post anchors as they get migrated) --
+/mold-like-vancouver-mold-specialist-video/                    /blog 301
+/mold-like-vancouver-mold-specialist-video                     /blog 301
+/mold-like-vancouver-mold-specialist/                          /blog 301
+/mold-like-vancouver-mold-specialist                           /blog 301
+/marijuana-grow-op-coquitlam/                                  /blog 301
+/marijuana-grow-op-coquitlam                                   /blog 301
+/difference-heat-pump-air-conditioner/                         /blog 301
+/difference-heat-pump-air-conditioner                          /blog 301
+/mold/                                                         /blog 301
+/mold                                                          /blog 301
+/inspecting-7200-square-foot-home-maple-ridge/                 /blog 301
+/inspecting-7200-square-foot-home-maple-ridge                  /blog 301
+/time-replace-washing-machine-hoses/                           /blog 301
+/time-replace-washing-machine-hoses                            /blog 301
+/read-strata-minutes-and-watch-for/                            /blog 301
+/read-strata-minutes-and-watch-for                             /blog 301
+/truss-uplift-cracks-ceiling/                                  /blog 301
+/truss-uplift-cracks-ceiling                                   /blog 301
+/featured-inspection-fleetwood-surrey/                         /blog 301
+/featured-inspection-fleetwood-surrey                          /blog 301
+/house-ready-to-collapse-new-westminster-home-inspection/      /blog 301
+/house-ready-to-collapse-new-westminster-home-inspection       /blog 301
+/pinhole-leaks-copper-piping/                                  /blog 301
+/pinhole-leaks-copper-piping                                   /blog 301
+/photos-vancouver-leaky-condo/                                 /blog 301
+/photos-vancouver-leaky-condo                                  /blog 301
+/perimeter-drain-blockage-vancouver-featured-home-inspection/  /blog 301
+/perimeter-drain-blockage-vancouver-featured-home-inspection   /blog 301
+/tar-gravel-roof-east-vancouver-featured-home-inspection/      /blog 301
+/tar-gravel-roof-east-vancouver-featured-home-inspection       /blog 301
+/signs-time-replace-hot-water-tank/                            /blog 301
+/signs-time-replace-hot-water-tank                             /blog 301
+/vancouver-home-inspection-trap/                               /blog 301
+/vancouver-home-inspection-trap                                /blog 301
+/vancouver-home-inspection-foreclosure-house-failing-structure/ /blog 301
+/vancouver-home-inspection-foreclosure-house-failing-structure /blog 301
+/toxic-black-mold-burnaby/                                     /blog 301
+/toxic-black-mold-burnaby                                      /blog 301
+/problems-polybutylene-pipes/                                  /blog 301
+/problems-polybutylene-pipes                                   /blog 301
+/toxic-black-mold-myths-facts/                                 /blog 301
+/toxic-black-mold-myths-facts                                  /blog 301
+/install-new-roof-over-old-one-double-layers-home-inspector/   /blog 301
+/install-new-roof-over-old-one-double-layers-home-inspector    /blog 301
+/hot-water-tanks-understanding-anode-rods/                     /blog 301
+/hot-water-tanks-understanding-anode-rods                      /blog 301
+/identify-leaky-condo-vancouver/                               /blog 301
+/identify-leaky-condo-vancouver                                /blog 301
+/radon-problem-vancouver/                                      /blog 301
+/radon-problem-vancouver                                       /blog 301
+/fake-electrical-outlet-langley-townhome-featured-home-inspection/ /blog 301
+/fake-electrical-outlet-langley-townhome-featured-home-inspection /blog 301
+/what-does-grow-op-look-like/                                  /blog 301
+/what-does-grow-op-look-like                                   /blog 301
+/safety-issues-older-homes-vancouver-bc/                       /blog 301
+/safety-issues-older-homes-vancouver-bc                        /blog 301
+/coquitlam-drone-roof-inspection-photos/                       /blog 301
+/coquitlam-drone-roof-inspection-photos                        /blog 301
+/leaking-deck-east-vancouver/                                  /blog 301
+/leaking-deck-east-vancouver                                   /blog 301
+/plumbing-problems-maple-ridge-bc-featured-home-inspection/    /blog 301
+/plumbing-problems-maple-ridge-bc-featured-home-inspection     /blog 301
+/buying-condo-vancouver/                                       /blog 301
+/buying-condo-vancouver                                        /blog 301
+/buried-oil-tanks/                                             /blog 301
+/buried-oil-tanks                                              /blog 301
+/water-damaged-brick-wall-cloverdale-featured-home-inspection/ /blog 301
+/water-damaged-brick-wall-cloverdale-featured-home-inspection  /blog 301
+/electrical-fire-hazard-burnaby-home-inspection/               /blog 301
+/electrical-fire-hazard-burnaby-home-inspection                /blog 301
+/aluminium-wiring-richmond-inspection/                         /blog 301
+/aluminium-wiring-richmond-inspection                          /blog 301
+/new-westminster-structure-rot-home-inspection/                /blog 301
+/new-westminster-structure-rot-home-inspection                 /blog 301
+/video-whats-included-swimming-pool-inspections/               /blog 301
+/video-whats-included-swimming-pool-inspections                /blog 301
+/port-coquitlam-wiring-disaster-featured-home-inspection/      /blog 301
+/port-coquitlam-wiring-disaster-featured-home-inspection       /blog 301
+/water-crawlspace-leakage-port-moody-featured-home-inspection/ /blog 301
+/water-crawlspace-leakage-port-moody-featured-home-inspection  /blog 301
+/bathroom-fan-vancouver-home-inspection-mold/                  /blog 301
+/bathroom-fan-vancouver-home-inspection-mold                   /blog 301
+/featured-inspection-dawes-hill-coquitlam-part-1/              /blog 301
+/featured-inspection-dawes-hill-coquitlam-part-1               /blog 301
+/do-home-inspectors-test-appliances/                           /blog 301
+/do-home-inspectors-test-appliances                            /blog 301
+/homes-power-lines-dangerous-home-inspector-blog/              /blog 301
+/homes-power-lines-dangerous-home-inspector-blog               /blog 301
+/thermal-imaging-inspection-cost/                              /blog 301
+/thermal-imaging-inspection-cost                               /blog 301
+/news-fairbairn-inspection-services-featured-dirks-real-estate-team-newsletter/ /blog 301
+/news-fairbairn-inspection-services-featured-dirks-real-estate-team-newsletter /blog 301
+/vancouver-mold-inspection-whats-included/                     /blog 301
+/vancouver-mold-inspection-whats-included                      /blog 301
+/polybutylene-piping-leaky-truth/                              /blog 301
+/polybutylene-piping-leaky-truth                               /blog 301
+/langley-home-inspection-mold-leaks-attic/                     /blog 301
+/langley-home-inspection-mold-leaks-attic                      /blog 301
+/attic-mold/                                                   /blog 301
+/attic-mold                                                    /blog 301
+/shower-mold-remedies-vancouver-bc-mold-specialist/            /blog 301
+/shower-mold-remedies-vancouver-bc-mold-specialist             /blog 301
+/featured-inspection-deep-cove-north-vancouver/                /blog 301
+/featured-inspection-deep-cove-north-vancouver                 /blog 301
+
+# -- Old WordPress PDFs -> the same PDFs now at the site root --
+/wp-content/uploads/2013/12/Sample-Home-Inspection-Report.pdf  /Sample-Home-Inspection-Report.pdf 301
+/wp-content/uploads/2013/12/Sample-Condo-Inspection-Report.pdf /Sample-Condo-Inspection-Report.pdf 301
+
+# -- Splat rules LAST on purpose (Pages counts every rule after the first splat as dynamic, cap 100) --
+/category/*                                                    /blog 301
+/tag/*                                                         /blog 301
+/author/*                                                      /blog 301
+/blog-2/*                                                      /blog 301
+
+# Anything NOT matched above falls through to 404.html and returns a real 404.
+# Do NOT add a catch-all like '/*  /index.html  200' here: it turns every unknown URL into a
+# soft 404 (Google reports these as 'Alternate page with proper canonical tag').
